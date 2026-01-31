@@ -1,0 +1,206 @@
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\types.ts-68-  id: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\types.ts-69-  full_name: string | null;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\types.ts-70-  avatar_url: string | null;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\types.ts:71:  is_admin: boolean;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\types.ts-72-  plan: UserPlan;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\types.ts-73-  daily_video_limit: number | null;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\types.ts-74-  weekly_video_limit: number | null;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-8-  id: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-9-  email: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-10-  username?: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:11:  isAdmin: boolean;
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-12-  plan: 'free' | 'glowplus';
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-13-}
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-14-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-33-      console.log('fetchUserProfile called for userId:', userId);
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-34-      const { data: profile, error } = await supabase
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-35-        .from('profiles')
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:36:        .select('is_admin, plan')
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-37-        .eq('id', userId)
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-38-        .single();
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-39-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-41-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-42-      if (error) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-43-        console.error('Error fetching user profile:', error);
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:44:        return { isAdmin: false, plan: 'free' as const };
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-45-      }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-46-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-47-      return {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:48:        isAdmin: profile?.is_admin ?? false,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-49-        plan: (profile?.plan as 'free' | 'glowplus') ?? 'free',
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-50-      };
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-51-    } catch (error) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-52-      console.error('Failed to fetch user profile:', error);
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:53:      return { isAdmin: false, plan: 'free' as const };
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-54-    }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-55-  };
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-56-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-64-            id: session.user.id,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-65-            email: session.user.email || '',
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-66-            username: session.user.user_metadata?.username,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:67:            isAdmin: profileData.isAdmin,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-68-            plan: profileData.plan,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-69-          });
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-70-        }
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-91-          id: session.user.id,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-92-          email: session.user.email || '',
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-93-          username: session.user.user_metadata?.username,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:94:          isAdmin: profileData.isAdmin,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-95-          plan: profileData.plan,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-96-        });
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-97-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-155-        .from('profiles')
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-156-        .insert({
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-157-          id: data.user.id,
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx:158:          is_admin: false, // Default to non-admin
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-159-          plan: 'free', // Default to free plan
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-160-          created_at: new Date().toISOString(),
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\lib\auth-context.tsx-161-        });
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-62-  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-63-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-64-  useEffect(() => {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx:65:    if (!authLoading && (!user || !user.isAdmin)) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-66-      router.push('/');
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-67-    }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-68-  }, [user, authLoading, router]);
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-193-  }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-194-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-195-  // Show access denied if not admin
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx:196:  if (!user || !user.isAdmin) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-197-    return (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-198-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\add-video\page.tsx-199-        <Card className="bg-white/5 border-white/10 backdrop-blur-sm max-w-md">
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-46-  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-47-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-48-  useEffect(() => {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx:49:    if (!authLoading && (!user || !user.isAdmin)) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-50-      router.push('/');
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-51-    }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-52-  }, [user, authLoading, router]);
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-65-      }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-66-    };
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-67-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx:68:    if (user?.isAdmin) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-69-      fetchCategories();
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-70-    }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-71-  }, [user]);
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-291-  }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-292-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-293-  // Show access denied if not admin
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx:294:  if (!user || !user.isAdmin) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-295-    return (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-296-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-playlist\page.tsx-297-        <Card className="bg-white/5 border-white/10 backdrop-blur-sm max-w-md">
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-49-  } | null>(null);
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-50-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-51-  useEffect(() => {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx:52:    if (!authLoading && (!user || !user.isAdmin)) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-53-      router.push('/');
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-54-    }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-55-  }, [user, authLoading, router]);
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-251-  }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-252-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-253-  // Show access denied if not admin
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx:254:  if (!user || !user.isAdmin) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-255-    return (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-256-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\fetch-channel\page.tsx-257-        <Card className="bg-white/5 border-white/10 backdrop-blur-sm max-w-md">
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-71-  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-72-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-73-  useEffect(() => {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx:74:    if (!authLoading && (!user || !user.isAdmin)) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-75-      router.push('/');
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-76-    }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-77-  }, [user, authLoading, router]);
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-90-      }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-91-    };
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-92-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx:93:    if (user?.isAdmin) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-94-      fetchCategories();
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-95-    }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-96-  }, [user]);
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-403-  }
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-404-
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-405-  // Show access denied if not admin
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx:406:  if (!user || !user.isAdmin) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-407-    return (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-408-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\app\admin\import-video-ids\page.tsx-409-        <Card className="bg-white/5 border-white/10 backdrop-blur-sm max-w-md">
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-50-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-51-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-52-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql:53:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-54-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-55-  );
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-56-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-63-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-64-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-65-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql:66:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-67-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-68-  )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-69-  WITH CHECK (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-70-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-71-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-72-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql:73:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-74-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-75-  );
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-76-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-83-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-84-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-85-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql:86:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-87-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-88-  );
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000000_create_video_requests_table.sql-89-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-50-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-51-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-52-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql:53:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-54-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-55-  );
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-56-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-63-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-64-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-65-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql:66:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-67-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-68-  )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-69-  WITH CHECK (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-70-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-71-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-72-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql:73:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-74-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-75-  );
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-76-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-83-    EXISTS (
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-84-      SELECT 1 FROM profiles
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-85-      WHERE profiles.id = auth.uid()
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql:86:      AND profiles.is_admin = true
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-87-    )
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-88-  );
+C:\Users\ben_f\.claude-worktrees\brytlyst\vigilant-pascal\supabase\migrations\20251227000001_create_channel_requests_table.sql-89-

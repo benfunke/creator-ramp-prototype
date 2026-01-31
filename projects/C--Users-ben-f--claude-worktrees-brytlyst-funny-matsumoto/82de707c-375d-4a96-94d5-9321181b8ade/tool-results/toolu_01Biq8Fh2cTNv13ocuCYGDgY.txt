@@ -1,0 +1,398 @@
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\layout.tsx-7-
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\layout.tsx-8-export const metadata: Metadata = {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\layout.tsx-9-  title: 'BrytLyst - Bright vids. Only.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\layout.tsx:10:  description: 'Curated YouTube content that\'s what we both want',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\layout.tsx-11-  manifest: '/site.webmanifest',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\layout.tsx-12-  appleWebApp: {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\layout.tsx-13-    capable: true,
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-170-
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-171-        if (query) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-172-          queryBuilder = queryBuilder.or(
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx:173:            `title.ilike.%${query}%,channel_name.ilike.%${query}%,category.ilike.%${query}%,description.ilike.%${query}%,tags.cs.{${query}}`
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-174-          );
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-175-        }
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-176-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-311-
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-312-        if (query) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-313-          queryBuilder = queryBuilder.or(
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx:314:            `title.ilike.%${query}%,channel_name.ilike.%${query}%,category.ilike.%${query}%,description.ilike.%${query}%,tags.cs.{${query}}`
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-315-          );
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-316-        }
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\search-wrapper.tsx-317-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\watch\[id]\page.tsx-44-        videoId={video.id}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\watch\[id]\page.tsx-45-        videoTitle={video.title}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\watch\[id]\page.tsx-46-        channelName={video.channel_name}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\watch\[id]\page.tsx:47:        videoDescription={video.description || ''}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\watch\[id]\page.tsx-48-        videoCategory={video.category}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\watch\[id]\page.tsx-49-        videoDuration={video.duration}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\watch\[id]\page.tsx-50-        youtubeId={video.youtube_id}
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-64-      // Success! Show toast and close modal
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-65-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-66-        title: '🎉 Welcome to BrytLyst GlowPlus!',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx:67:        description: 'You now have video watching without limits. Enjoy!',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-68-        duration: 10000, // 10 seconds
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-69-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-70-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-84-      // Also show error toast
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-85-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-86-        title: '⚠️ Upgrade Failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx:87:        description: 'Please reach out to support@brytlyst.com about getting upgraded to GlowPlus!',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-88-        variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-89-        duration: 10000, // 10 seconds
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\upgrade-modal.tsx-90-      });
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\video-tracker.tsx-69-        p_video_duration_seconds: videoDurationSeconds,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\video-tracker.tsx-70-        p_video_title: videoTitle,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\video-tracker.tsx-71-        p_channel_name: channelName,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\video-tracker.tsx:72:        p_video_description: videoDescription || '',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\video-tracker.tsx-73-        p_video_category: videoCategory,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\video-tracker.tsx-74-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\video-tracker.tsx-75-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-37-      await logout();
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-38-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-39-        title: 'Logged out',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx:40:        description: 'You have been successfully logged out.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-41-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-42-      router.refresh();
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-43-    } catch (error) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-44-      console.error('Logout error:', error);
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-45-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-46-        title: 'Logout failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx:47:        description: 'An error occurred while logging out.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-48-        variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-49-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\user-menu.tsx-50-    }
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-49-        console.log('Login had error, showing toast');
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-50-        toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-51-          title: 'Login failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx:52:          description: error.message || 'Invalid email or password. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-53-          variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-54-        });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-55-      } else {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-56-        console.log('Login successful, showing success toast');
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-57-        toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-58-          title: 'Welcome back!',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx:59:          description: 'You have successfully logged in.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-60-        });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-61-        onOpenChange(false);
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-62-        setEmail('');
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-66-      console.log('Login exception caught:', error);
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-67-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-68-        title: 'Login failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx:69:        description: 'An unexpected error occurred. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-70-        variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-71-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\login-dialog.tsx-72-    } finally {
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-181-
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-182-        if (query) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-183-          queryBuilder = queryBuilder.or(
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx:184:            `title.ilike.%${query}%,channel_name.ilike.%${query}%,category.ilike.%${query}%,description.ilike.%${query}%,tags.cs.{${query}}`
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-185-          );
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-186-        }
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-187-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-323-
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-324-        if (query) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-325-          queryBuilder = queryBuilder.or(
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx:326:            `title.ilike.%${query}%,channel_name.ilike.%${query}%,category.ilike.%${query}%,description.ilike.%${query}%,tags.cs.{${query}}`
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-327-          );
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-328-        }
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\sections-wrapper.tsx-329-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-66-        console.log('Signup had error, showing toast');
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-67-        toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-68-          title: 'Signup failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx:69:          description: error.message || 'Unable to create account. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-70-          variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-71-        });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-72-      } else {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-73-        console.log('Signup successful, showing success toast');
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-74-        toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-75-          title: 'Welcome!',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx:76:          description: 'Your account has been created successfully.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-77-        });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-78-        onOpenChange(false);
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-79-        form.reset(); // Clear form on success
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-82-      console.log('Signup exception caught:', error);
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-83-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-84-        title: 'Signup failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx:85:        description: 'An unexpected error occurred. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-86-        variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-87-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\signup-dialog.tsx-88-    } finally {
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\app-mode-toast.tsx-80-      const { dismiss } = toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\app-mode-toast.tsx-81-        duration: AUTO_DISMISS_MS,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\app-mode-toast.tsx-82-        title: "Launch BrytLyst in Kid-Safe App Mode",
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\app-mode-toast.tsx:83:        description: toastDescription,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\app-mode-toast.tsx-84-        action: toastAction,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\app-mode-toast.tsx-85-        onOpenChange: (open) => {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\app-mode-toast.tsx-86-          // When toast is closed, handle dismissal logic
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-25-  video_id: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-26-  video_title: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-27-  channel_name: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx:28:  video_description: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-29-  video_category: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-30-  duration_seconds: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-31-  video_duration_seconds: number;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-37- *
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-38- * Features:
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-39- * - Shows last 40 videos watched (filtered to 45+ seconds)
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx:40: * - Real-time search by title, channel, description, category
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-41- * - Click video to watch it
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-42- * - Displays relative time (e.g., "2 hours ago")
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-43- */
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-87-    return (
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-88-      video.video_title.toLowerCase().includes(query) ||
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-89-      video.channel_name.toLowerCase().includes(query) ||
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx:90:      video.video_description.toLowerCase().includes(query) ||
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-91-      video.video_category.toLowerCase().includes(query)
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-92-    );
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\seen-modal.tsx-93-  });
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-59-        if (error.message?.includes('rate limit') || error.message?.includes('429')) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-60-          toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-61-            title: 'Rate limit exceeded',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:62:            description: 'You have submitted too many requests. Please try again in 15 minutes.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-63-            variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-64-          });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-65-        } else {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-66-          toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-67-            title: 'Submission failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:68:            description: error.message || 'Failed to submit video request. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-69-            variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-70-          });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-71-        }
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-75-      if (data?.error) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-76-        toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-77-          title: 'Submission failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:78:          description: data.error,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-79-          variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-80-        });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-81-        return;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-84-      // Success
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-85-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-86-        title: 'Request submitted!',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:87:        description: 'Your video request has been submitted successfully.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-88-        variant: 'success',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-89-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-90-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-95-      console.error('Error submitting video request:', error);
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-96-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-97-        title: 'Submission failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:98:        description: 'An unexpected error occurred. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-99-        variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-100-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-101-    } finally {
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-128-        if (error.message?.includes('rate limit') || error.message?.includes('429')) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-129-          toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-130-            title: 'Rate limit exceeded',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:131:            description: 'You have submitted too many requests. Please try again in 15 minutes.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-132-            variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-133-          });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-134-        } else {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-135-          toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-136-            title: 'Submission failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:137:            description: error.message || 'Failed to submit channel request. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-138-            variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-139-          });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-140-        }
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-144-      if (data?.error) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-145-        toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-146-          title: 'Submission failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:147:          description: data.error,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-148-          variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-149-        });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-150-        return;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-153-      // Success
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-154-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-155-        title: 'Request submitted!',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:156:        description: 'Your channel request has been submitted successfully.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-157-        variant: 'success',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-158-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-159-
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-164-      console.error('Error submitting channel request:', error);
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-165-      toast({
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-166-        title: 'Submission failed',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx:167:        description: 'An unexpected error occurred. Please try again.',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-168-        variant: 'destructive',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-169-      });
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\request-video-modal.tsx-170-    } finally {
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-25-  views: string | null;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-26-  viewCount: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-27-  likes: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx:28:  description: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-29-  tags: string[];
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-30-  uploadedAt: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-31-  youtubeId: string;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-224-        views: v.views,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-225-        view_count: v.viewCount,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-226-        uploaded_at: v.uploadedAt,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx:227:        description: v.description,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-228-        tags: v.tags,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-229-        likes: v.likes,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-230-        is_active: true,
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-611-                        <div>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-612-                          <Label className="text-gray-300 text-xs">Description</Label>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-613-                          <Textarea
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx:614:                            value={video.description}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx:615:                            onChange={(e) => updateVideoField(video.youtubeId, 'description', e.target.value)}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-616-                            rows={3}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-617-                            className="bg-white/5 border-white/10 text-white text-sm mt-1 resize-none"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-playlist\page.tsx-618-                          />
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-24-  views: string | null;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-25-  view_count: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-26-  likes: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx:27:  description: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-28-  tags: string[];
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-29-  uploadedAt: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-30-  youtubeId: string;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-173-          views: v.views,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-174-          view_count: v.view_count,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-175-          uploaded_at: v.uploadedAt,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx:176:          description: v.description,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-177-          tags: v.tags,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-178-          likes: v.likes,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\fetch-channel\page.tsx-179-          is_active: true,
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-47-  views: string | null;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-48-  viewCount: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-49-  likes: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx:50:  description: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-51-  tags: string[];
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-52-  uploadedAt: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-53-  youtubeId: string;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-148-        views: null,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-149-        viewCount: 0,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-150-        likes: 0,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx:151:        description: '',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-152-        tags: [],
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-153-        uploadedAt: '',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-154-        fetchStatus: 'pending',
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-209-              views: null,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-210-              viewCount: 0,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-211-              likes: 0,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx:212:              description: '',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-213-              tags: [],
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-214-              uploadedAt: '',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-215-              category: '',
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-345-        views: v.views,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-346-        view_count: v.viewCount,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-347-        uploaded_at: v.uploadedAt,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx:348:        description: v.description,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-349-        tags: v.tags,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-350-        likes: v.likes,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-351-        is_active: true,
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-752-                            <div>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-753-                              <Label className="text-gray-300 text-xs">Description</Label>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-754-                              <Textarea
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx:755:                                value={video.description}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx:756:                                onChange={(e) => updateVideoField(video.youtubeId, 'description', e.target.value)}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-757-                                rows={3}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-758-                                className="bg-white/5 border-white/10 text-white text-sm mt-1 resize-none"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\import-video-ids\page.tsx-759-                              />
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-139-          onKeyDownCapture={handleKeyDown}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-140-          className={cn('relative', className)}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-141-          role="region"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx:142:          aria-roledescription="carousel"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-143-          {...props}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-144-        >
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-145-          {children}
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-182-    <div
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-183-      ref={ref}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-184-      role="group"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx:185:      aria-roledescription="slide"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-186-      className={cn(
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-187-        'min-w-0 shrink-0 grow-0 basis-full',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\carousel.tsx-188-        orientation === 'horizontal' ? 'pl-4' : 'pt-4',
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-45-  views: string | null;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-46-  viewCount: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-47-  likes: number;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx:48:  description: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-49-  tags: string[];
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-50-  uploadedAt: string;
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-51-  youtubeId: string;
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-139-          views: metadata.views,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-140-          view_count: metadata.viewCount || 0,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-141-          uploaded_at: metadata.uploadedAt,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx:142:          description: metadata.description,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-143-          tags: metadata.tags,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-144-          likes: parseInt(String(metadata.likes)) || 0,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-145-          is_active: true,
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-418-                </div>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-419-
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-420-                <div>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx:421:                  <Label htmlFor="description" className="text-gray-300">
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-422-                    Description
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-423-                  </Label>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-424-                  <Textarea
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx:425:                    id="description"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx:426:                    value={metadata.description}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx:427:                    onChange={(e) => updateMetadata('description', e.target.value)}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-428-                    rows={4}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-429-                    className="bg-white/5 border-white/10 text-white resize-none"
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\app\admin\add-video\page.tsx-430-                  />
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\form.tsx-58-    id,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\form.tsx-59-    name: fieldContext.name,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\form.tsx-60-    formItemId: `${id}-form-item`,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\form.tsx:61:    formDescriptionId: `${id}-form-item-description`,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\form.tsx-62-    formMessageId: `${id}-form-item-message`,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\form.tsx-63-    ...fieldState,
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\form.tsx-64-  };
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\sonner.tsx-16-        classNames: {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\sonner.tsx-17-          toast:
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\sonner.tsx-18-            'group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\sonner.tsx:19:          description: 'group-[.toast]:text-muted-foreground',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\sonner.tsx-20-          actionButton:
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\sonner.tsx-21-            'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\sonner.tsx-22-          cancelButton:
+--
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-15-
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-16-  return (
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-17-    <ToastProvider>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx:18:      {toasts.map(function ({ id, title, description, action, ...props }) {
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-19-        return (
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-20-          <Toast key={id} {...props}>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-21-            <div className="grid gap-1">
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-22-              {title && <ToastTitle>{title}</ToastTitle>}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx:23:              {description && (
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx:24:                <ToastDescription>{description}</ToastDescription>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-25-              )}
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-26-            </div>
+C:\Users\ben_f\.claude-worktrees\brytlyst\funny-matsumoto\components\ui\toaster.tsx-27-            {action}

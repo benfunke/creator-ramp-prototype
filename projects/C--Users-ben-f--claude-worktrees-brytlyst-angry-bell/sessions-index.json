@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "36050b1a-e1de-40ed-824b-2a1f3ed22c69",
+      "leafUuid": "42f9e275-7261-4192-9d82-576bb20b2866",
+      "fullPath": "C:\\Users\\ben_f\\.claude\\projects\\C--Users-ben-f--claude-worktrees-brytlyst-angry-bell\\36050b1a-e1de-40ed-824b-2a1f3ed22c69.jsonl",
+      "fileMtime": 1768853726311,
+      "firstPrompt": "in the home page of the app, i would like the videos to be sorted in a very specific way. tell me how this would be possible.  List one random video from each category. So the page would show exactly…",
+      "messageCount": 81,
+      "created": "2026-01-19T19:38:23.734Z",
+      "modified": "2026-01-19T20:15:26.219Z",
+      "gitBranch": "angry-bell",
+      "projectPath": "C:\\Users\\ben_f\\.claude-worktrees\\brytlyst\\angry-bell",
+      "isSidechain": false
+    }
+  ]
+}

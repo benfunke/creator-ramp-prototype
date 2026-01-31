@@ -1,0 +1,353 @@
+2026-01-05T18:54:36.432Z [DEBUG] Watching for changes in setting files C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json...
+2026-01-05T18:54:36.579Z [DEBUG] Using bash path: "C:\Program Files\Git\bin\bash.exe"
+2026-01-05T18:54:36.651Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-01-05T18:54:36.651Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-01-05T18:54:36.651Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-01-05T18:54:36.651Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2026-01-05T18:54:36.651Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2026-01-05T18:54:36.675Z [DEBUG] Applying permission update: Adding 8 allow rule(s) to destination 'localSettings': ["Bash(npm install:*)","Bash(npm run dev:*)","Bash(dir:*)","Bash(findstr:*)","Bash(test:*)","Bash(npx supabase db reset)","Bash(git add:*)","Bash(git commit:*)"]
+2026-01-05T18:54:36.695Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-05T18:54:36.696Z [DEBUG] Total LSP servers loaded: 0
+2026-01-05T18:54:36.696Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-01-05T18:54:36.696Z [DEBUG] LSP manager initialized with 0 servers
+2026-01-05T18:54:36.696Z [DEBUG] LSP server manager initialized successfully
+2026-01-05T18:54:36.697Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-01-05T18:54:36.769Z [DEBUG] Loading skills from directories: managed=C:\ProgramData\ClaudeCode\.claude\skills, user=C:\Users\ben_f\.claude\skills, project=[]
+2026-01-05T18:54:36.770Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2026-01-05T18:54:40.333Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (3504.2ms): tasklist | findstr /I "Code.exe Cursor.exe Windsurf.exe idea64.exe pycharm64.exe webstorm64.exe phps
+2026-01-05T18:54:40.346Z [DEBUG] Loaded 0 installed plugins from C:\Users\ben_f\.claude\plugins\installed_plugins.json (schema version 1)
+2026-01-05T18:54:40.348Z [DEBUG] Official marketplace auto-install already attempted, skipping
+2026-01-05T18:54:40.481Z [DEBUG] Creating shell snapshot for bash (C:\Program Files\Git\bin\bash.exe)
+2026-01-05T18:54:40.482Z [DEBUG] Looking for shell config file: C:\Users\ben_f\.bashrc
+2026-01-05T18:54:40.482Z [DEBUG] Shell config file not found: C:\Users\ben_f\.bashrc, creating snapshot with Claude Code defaults only
+2026-01-05T18:54:40.482Z [DEBUG] Snapshots directory: C:\Users\ben_f\.claude\shell-snapshots
+2026-01-05T18:54:40.521Z [DEBUG] Creating snapshot at: C:\Users\ben_f\.claude\shell-snapshots\snapshot-bash-1767639280482-541vgd.sh
+2026-01-05T18:54:40.521Z [DEBUG] Shell binary exists: true
+2026-01-05T18:54:40.521Z [DEBUG] Execution timeout: 10000ms
+2026-01-05T18:54:40.539Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude\todos\1663f526-02d4-4521-a8ef-b68da5122b0d-agent-1663f526-02d4-4521-a8ef-b68da5122b0d.json.tmp.214004.1767639280539
+2026-01-05T18:54:40.546Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.4ms)
+2026-01-05T18:54:40.546Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-05T18:54:40.546Z [DEBUG] Renaming C:\Users\ben_f\.claude\todos\1663f526-02d4-4521-a8ef-b68da5122b0d-agent-1663f526-02d4-4521-a8ef-b68da5122b0d.json.tmp.214004.1767639280539 to C:\Users\ben_f\.claude\todos\1663f526-02d4-4521-a8ef-b68da5122b0d-agent-1663f526-02d4-4521-a8ef-b68da5122b0d.json
+2026-01-05T18:54:40.548Z [DEBUG] File C:\Users\ben_f\.claude\todos\1663f526-02d4-4521-a8ef-b68da5122b0d-agent-1663f526-02d4-4521-a8ef-b68da5122b0d.json written atomically
+2026-01-05T18:54:40.621Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-05T18:54:40.621Z [DEBUG] Total plugin skills loaded: 0
+2026-01-05T18:54:40.621Z [DEBUG] Total plugin commands loaded: 0
+2026-01-05T18:54:40.622Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-05T18:54:40.687Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2026-01-05T18:54:40.743Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2026-01-05T18:54:40.760Z [DEBUG] Total plugin agents loaded: 0
+2026-01-05T18:54:41.009Z [DEBUG] Loaded 0 installed plugins from V2 file at C:\Users\ben_f\.claude\plugins\installed_plugins_v2.json
+2026-01-05T18:54:41.009Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-01-05T18:54:41.028Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-01-05T18:54:41.028Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:41.028Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-01-05T18:54:41.125Z [DEBUG] [SLOW OPERATION DETECTED] fs.copyFileSync (10.3ms)
+2026-01-05T18:54:41.127Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude.json.tmp.214004.1767639281126
+2026-01-05T18:54:41.127Z [DEBUG] Preserving file permissions: 100666
+2026-01-05T18:54:41.134Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.8ms)
+2026-01-05T18:54:41.134Z [DEBUG] Temp file written successfully, size: 18339 bytes
+2026-01-05T18:54:41.135Z [DEBUG] Applied original permissions to temp file
+2026-01-05T18:54:41.135Z [DEBUG] Renaming C:\Users\ben_f\.claude.json.tmp.214004.1767639281126 to C:\Users\ben_f\.claude.json
+2026-01-05T18:54:41.141Z [DEBUG] [SLOW OPERATION DETECTED] fs.renameSync (5.7ms)
+2026-01-05T18:54:41.141Z [DEBUG] File C:\Users\ben_f\.claude.json written atomically
+2026-01-05T18:54:41.539Z [DEBUG] Total plugin output styles loaded: 0
+2026-01-05T18:54:41.557Z [DEBUG] Git remote URL: https://github.com/benfunke/brytlyst.git
+2026-01-05T18:54:41.557Z [DEBUG] Parsed repository: benfunke/brytlyst from https://github.com/benfunke/brytlyst.git
+2026-01-05T18:54:41.557Z [DEBUG] Parsed repository: benfunke/brytlyst from URL: https://github.com/benfunke/brytlyst.git
+2026-01-05T18:54:41.578Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude.json.tmp.214004.1767639281578
+2026-01-05T18:54:41.578Z [DEBUG] Preserving file permissions: 100666
+2026-01-05T18:54:41.587Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.6ms)
+2026-01-05T18:54:41.587Z [DEBUG] Temp file written successfully, size: 18414 bytes
+2026-01-05T18:54:41.587Z [DEBUG] Applied original permissions to temp file
+2026-01-05T18:54:41.587Z [DEBUG] Renaming C:\Users\ben_f\.claude.json.tmp.214004.1767639281578 to C:\Users\ben_f\.claude.json
+2026-01-05T18:54:41.593Z [DEBUG] [SLOW OPERATION DETECTED] fs.renameSync (5.8ms)
+2026-01-05T18:54:41.593Z [DEBUG] File C:\Users\ben_f\.claude.json written atomically
+2026-01-05T18:54:41.594Z [DEBUG] Added C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf to tracked paths for repo benfunke/brytlyst
+2026-01-05T18:54:41.901Z [ERROR] "Error: Error: Error opening file C:\\Users\\ben_f\\.claude\\projects\\C--Users-ben-f--claude-worktrees-brytlyst-distracted-mestorf\\1663f526-02d4-4521-a8ef-b68da5122b0d.jsonl: Error: ENOENT: no such file or directory, open 'C:\\Users\\ben_f\\.claude\\projects\\C--Users-ben-f--claude-worktrees-brytlyst-distracted-mestorf\\1663f526-02d4-4521-a8ef-b68da5122b0d.jsonl'\n    at Vx (B:/~BUN/root/claude.exe:62:175)\n    at async U_H (B:/~BUN/root/claude.exe:4293:3572)\n    at processTicksAndRejections (native:7:39)"
+2026-01-05T18:54:41.921Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.9ms)
+2026-01-05T18:54:42.333Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2026-01-05T18:54:42.333Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:42.333Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2026-01-05T18:54:42.334Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2026-01-05T18:54:42.334Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:42.334Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2026-01-05T18:54:42.480Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T18:54:42.480Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T18:54:42.481Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T18:54:42.481Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T18:54:42.481Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T18:54:42.481Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T18:54:42.487Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-01-05T18:54:42.487Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:42.487Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-05T18:54:42.629Z [DEBUG] Slash commands included in SlashCommand tool:
+2026-01-05T18:54:42.630Z [DEBUG] Skills and commands included in Skill tool:
+2026-01-05T18:54:42.954Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (8.4ms)
+2026-01-05T18:54:43.019Z [DEBUG] Shell snapshot created successfully (314 bytes)
+2026-01-05T18:54:43.028Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.8ms)
+2026-01-05T18:54:43.539Z [DEBUG] Stream started - received first chunk
+2026-01-05T18:54:43.545Z [DEBUG] rg error (signal=undefined, code=ABORT_ERR, stderr: ), 0 results
+2026-01-05T18:54:43.545Z [ERROR] "AbortError: AbortError: The operation was aborted.\n    at unknown\n    at abortChildProcess (node:child_process:947:42)\n    at onAbortListener2 (node:child_process:35:24)\n    at abort (unknown)\n    at <anonymous> (B:/~BUN/root/claude.exe:4590:12621)"
+2026-01-05T18:54:43.706Z [DEBUG] Ripgrep first use test: PASSED (mode=builtin, path=C:\Users\ben_f\AppData\Roaming\Claude\claude-code\2.0.65\claude.exe)
+2026-01-05T18:54:44.103Z [DEBUG] Stream started - received first chunk
+2026-01-05T18:54:44.991Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2026-01-05T18:54:44.991Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:44.991Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-05T18:54:49.097Z [DEBUG] Getting matching hook commands for SubagentStop with query: undefined
+2026-01-05T18:54:49.097Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:49.097Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-05T18:54:51.214Z [DEBUG] Stream started - received first chunk
+2026-01-05T18:54:54.667Z [DEBUG] executePreToolHooks called for tool: Grep
+2026-01-05T18:54:54.668Z [DEBUG] executePreToolHooks called for tool: Grep
+2026-01-05T18:54:54.668Z [DEBUG] executePreToolHooks called for tool: Grep
+2026-01-05T18:54:54.669Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2026-01-05T18:54:54.669Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:54.669Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:54:54.670Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2026-01-05T18:54:54.670Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:54.670Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:54:54.670Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2026-01-05T18:54:54.670Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:54:54.670Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:55:02.590Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2026-01-05T18:55:02.590Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:02.590Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:55:02.657Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2026-01-05T18:55:02.658Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:02.658Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:55:02.668Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2026-01-05T18:55:02.668Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:02.668Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:55:03.246Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T18:55:03.246Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T18:55:03.246Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T18:55:03.246Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T18:55:03.246Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T18:55:03.246Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T18:55:06.246Z [DEBUG] Stream started - received first chunk
+2026-01-05T18:55:07.962Z [DEBUG] executePreToolHooks called for tool: Glob
+2026-01-05T18:55:07.963Z [DEBUG] executePreToolHooks called for tool: Glob
+2026-01-05T18:55:07.963Z [DEBUG] executePreToolHooks called for tool: Grep
+2026-01-05T18:55:07.965Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2026-01-05T18:55:07.965Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:07.965Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2026-01-05T18:55:07.965Z [DEBUG] Getting matching hook commands for PreToolUse with query: Glob
+2026-01-05T18:55:07.965Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:07.965Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2026-01-05T18:55:07.966Z [DEBUG] Getting matching hook commands for PreToolUse with query: Grep
+2026-01-05T18:55:07.966Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:07.966Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:55:18.271Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2026-01-05T18:55:18.271Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:18.271Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2026-01-05T18:55:18.309Z [DEBUG] Getting matching hook commands for PostToolUse with query: Glob
+2026-01-05T18:55:18.309Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:18.310Z [DEBUG] Matched 0 unique hooks for query "Glob" (0 before deduplication)
+2026-01-05T18:55:18.437Z [DEBUG] Getting matching hook commands for PostToolUse with query: Grep
+2026-01-05T18:55:18.437Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:18.437Z [DEBUG] Matched 0 unique hooks for query "Grep" (0 before deduplication)
+2026-01-05T18:55:18.928Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T18:55:18.928Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T18:55:18.928Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T18:55:18.928Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T18:55:18.928Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T18:55:18.928Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T18:55:21.221Z [DEBUG] Stream started - received first chunk
+2026-01-05T18:55:21.819Z [DEBUG] executePreToolHooks called for tool: Read
+2026-01-05T18:55:21.820Z [DEBUG] Getting matching hook commands for PreToolUse with query: Read
+2026-01-05T18:55:21.820Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:21.820Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-05T18:55:26.137Z [DEBUG] Getting matching hook commands for PostToolUse with query: Read
+2026-01-05T18:55:26.137Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:26.137Z [DEBUG] Matched 0 unique hooks for query "Read" (0 before deduplication)
+2026-01-05T18:55:26.349Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T18:55:26.349Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T18:55:26.349Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T18:55:26.349Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T18:55:26.351Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T18:55:26.351Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T18:55:28.795Z [DEBUG] Stream started - received first chunk
+2026-01-05T18:55:31.643Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-01-05T18:55:31.643Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T18:55:31.643Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-05T19:04:07.408Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:04:07.408Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:04:07.408Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:04:07.408Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:04:07.509Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:04:07.509Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:04:07.515Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-01-05T19:04:07.515Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:04:07.515Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-05T19:04:12.173Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:04:13.910Z [DEBUG] executePreToolHooks called for tool: Edit
+2026-01-05T19:04:13.911Z [DEBUG] Getting matching hook commands for PreToolUse with query: Edit
+2026-01-05T19:04:13.911Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:04:13.911Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2026-01-05T19:04:16.409Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\app\layout.tsx.tmp.214004.1767639856409
+2026-01-05T19:04:16.409Z [DEBUG] Preserving file permissions: 100666
+2026-01-05T19:04:16.412Z [DEBUG] Temp file written successfully, size: 2023 bytes
+2026-01-05T19:04:16.412Z [DEBUG] Applied original permissions to temp file
+2026-01-05T19:04:16.412Z [DEBUG] Renaming C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\app\layout.tsx.tmp.214004.1767639856409 to C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\app\layout.tsx
+2026-01-05T19:04:16.413Z [DEBUG] File C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\app\layout.tsx written atomically
+2026-01-05T19:04:16.423Z [DEBUG] Getting matching hook commands for PostToolUse with query: Edit
+2026-01-05T19:04:16.423Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:04:16.424Z [DEBUG] Matched 0 unique hooks for query "Edit" (0 before deduplication)
+2026-01-05T19:04:16.556Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:04:16.556Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:04:16.556Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:04:16.556Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:04:16.650Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:04:16.650Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:04:20.774Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:04:21.851Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-01-05T19:04:21.851Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:04:21.851Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-05T19:07:47.396Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:07:47.396Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:07:47.396Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:07:47.396Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:07:47.494Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:07:47.494Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:07:47.609Z [DEBUG] Getting matching hook commands for UserPromptSubmit with query: undefined
+2026-01-05T19:07:47.609Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:47.609Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)
+2026-01-05T19:07:49.159Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:07:51.557Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:07:51.557Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:07:51.557Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:07:51.558Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:07:51.558Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:51.558Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:51.558Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:07:51.558Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:51.558Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:51.558Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:07:51.558Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:51.558Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:51.566Z [DEBUG] tree-sitter: WASM files not found
+2026-01-05T19:07:51.760Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:07:52.193Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:07:52.396Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:07:52.863Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-05T19:07:52.863Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:52.863Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:53.163Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-05T19:07:53.163Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:53.163Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:53.377Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-05T19:07:53.377Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:53.377Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:53.473Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:07:53.473Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:07:53.474Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:07:53.474Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:07:53.474Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:07:53.474Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:07:53.853Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:07:53.853Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:07:54.406Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:07:55.615Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:07:58.398Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:07:58.399Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:07:58.399Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:58.399Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:58.599Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:07:59.885Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-05T19:07:59.885Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:07:59.885Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:07:59.987Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:07:59.987Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:07:59.987Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:07:59.987Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:07:59.988Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:07:59.988Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:08:00.481Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:01.656Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:03.141Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:08:03.142Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:08:03.142Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:03.142Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:03.698Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:03.798Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:03.819Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:04.223Z [DEBUG] "Permission suggestions for Bash: [\n  {\n    \"type\": \"addRules\",\n    \"rules\": [\n      {\n        \"toolName\": \"Bash\",\n        \"ruleContent\": \"git checkout:*\"\n      },\n      {\n        \"toolName\": \"Bash\",\n        \"ruleContent\": \"git merge:*\"\n      }\n    ],\n    \"behavior\": \"allow\",\n    \"destination\": \"localSettings\"\n  }\n]"
+2026-01-05T19:08:05.901Z [DEBUG] Applying permission update: Adding 2 allow rule(s) to destination 'localSettings': ["Bash(git checkout:*)","Bash(git merge:*)"]
+2026-01-05T19:08:05.901Z [DEBUG] Persisting permission update: addRules to source 'localSettings'
+2026-01-05T19:08:05.901Z [DEBUG] Persisting 2 allow rule(s) to localSettings
+2026-01-05T19:08:05.907Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json.tmp.214004.1767640085907
+2026-01-05T19:08:05.907Z [DEBUG] Preserving file permissions: 100666
+2026-01-05T19:08:05.915Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (7.4ms)
+2026-01-05T19:08:05.915Z [DEBUG] Temp file written successfully, size: 320 bytes
+2026-01-05T19:08:05.915Z [DEBUG] Applied original permissions to temp file
+2026-01-05T19:08:05.915Z [DEBUG] Renaming C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json.tmp.214004.1767640085907 to C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json
+2026-01-05T19:08:05.917Z [DEBUG] File C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json written atomically
+2026-01-05T19:08:06.146Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:08:07.222Z [DEBUG] Getting matching hook commands for PostToolUseFailure with query: Bash
+2026-01-05T19:08:07.222Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:07.223Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:07.322Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:08:07.322Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:08:07.322Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:07.323Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:07.506Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:08:08.489Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-05T19:08:08.489Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:08.489Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:08.598Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:08:08.598Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:08:08.598Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:08:08.598Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:08:08.598Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:08:08.598Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:08:09.746Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:10.333Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:12.674Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:08:12.675Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:08:12.675Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:12.675Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:13.529Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:13.786Z [DEBUG] "Permission suggestions for Bash: [\n  {\n    \"type\": \"addRules\",\n    \"rules\": [\n      {\n        \"toolName\": \"Bash\",\n        \"ruleContent\": \"git push:*\"\n      }\n    ],\n    \"behavior\": \"allow\",\n    \"destination\": \"localSettings\"\n  }\n]"
+2026-01-05T19:08:16.424Z [DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'localSettings': ["Bash(git push:*)"]
+2026-01-05T19:08:16.424Z [DEBUG] Persisting permission update: addRules to source 'localSettings'
+2026-01-05T19:08:16.424Z [DEBUG] Persisting 1 allow rule(s) to localSettings
+2026-01-05T19:08:16.431Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json.tmp.214004.1767640096431
+2026-01-05T19:08:16.431Z [DEBUG] Preserving file permissions: 100666
+2026-01-05T19:08:16.437Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.3ms)
+2026-01-05T19:08:16.437Z [DEBUG] Temp file written successfully, size: 346 bytes
+2026-01-05T19:08:16.437Z [DEBUG] Applied original permissions to temp file
+2026-01-05T19:08:16.437Z [DEBUG] Renaming C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json.tmp.214004.1767640096431 to C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json
+2026-01-05T19:08:16.438Z [DEBUG] File C:\Users\ben_f\.claude-worktrees\brytlyst\distracted-mestorf\.claude\settings.local.json written atomically
+2026-01-05T19:08:16.666Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:08:20.824Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-05T19:08:20.824Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:20.824Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:20.941Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:08:20.941Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:08:20.941Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:08:20.941Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:08:20.942Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:08:20.942Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:08:21.450Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:23.159Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:24.122Z [DEBUG] executePreToolHooks called for tool: Bash
+2026-01-05T19:08:24.123Z [DEBUG] Getting matching hook commands for PreToolUse with query: Bash
+2026-01-05T19:08:24.123Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:24.123Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:25.181Z [DEBUG] "Permission suggestions for Bash: [\n  {\n    \"type\": \"addRules\",\n    \"rules\": [\n      {\n        \"toolName\": \"Read\",\n        \"ruleContent\": \"//c/Users/ben_f/OneDrive/Documents/Code/BrytLyst/brytlyst/**\"\n      }\n    ],\n    \"behavior\": \"allow\",\n    \"destination\": \"session\"\n  }\n]"
+2026-01-05T19:08:34.686Z [DEBUG] Applying permission update: Adding 1 allow rule(s) to destination 'session': ["Read(//c/Users/ben_f/OneDrive/Documents/Code/BrytLyst/brytlyst/**)"]
+2026-01-05T19:08:34.906Z [DEBUG] Session environment not yet supported on Windows
+2026-01-05T19:08:38.986Z [DEBUG] Getting matching hook commands for PostToolUse with query: Bash
+2026-01-05T19:08:38.986Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:38.987Z [DEBUG] Matched 0 unique hooks for query "Bash" (0 before deduplication)
+2026-01-05T19:08:39.093Z [DEBUG] LSP Diagnostics: getLSPDiagnosticAttachments called
+2026-01-05T19:08:39.093Z [DEBUG] LSP Diagnostics: Checking registry - 0 pending
+2026-01-05T19:08:39.093Z [DEBUG] Hooks: Found 0 total hooks in registry
+2026-01-05T19:08:39.093Z [DEBUG] Hooks: checkForNewResponses returning 0 responses
+2026-01-05T19:08:39.093Z [DEBUG] [TeammateMailbox] getTeammateMailboxAttachments called: envAgentName=undefined, isTeamLead=false, resolved agentName=undefined, teamName=undefined
+2026-01-05T19:08:39.093Z [DEBUG] [TeammateMailbox] Not checking inbox - not a teammate or team lead
+2026-01-05T19:08:39.649Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:41.698Z [DEBUG] Stream started - received first chunk
+2026-01-05T19:08:43.342Z [DEBUG] Getting matching hook commands for Stop with query: undefined
+2026-01-05T19:08:43.342Z [DEBUG] Found 0 hook matchers in settings
+2026-01-05T19:08:43.342Z [DEBUG] Matched 0 unique hooks for query "no match query" (0 before deduplication)

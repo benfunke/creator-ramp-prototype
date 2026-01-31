@@ -1,0 +1,56 @@
+2025-12-31T17:03:36.565Z [DEBUG] Watching for changes in setting files C:\Users\ben_f\OneDrive\Documents\Code\BrytLyst\brytlyst\.claude\settings.local.json...
+2025-12-31T17:03:36.647Z [DEBUG] Using bash path: "C:\Program Files\Git\bin\bash.exe"
+2025-12-31T17:03:36.707Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2025-12-31T17:03:36.707Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2025-12-31T17:03:36.707Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2025-12-31T17:03:36.707Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2025-12-31T17:03:36.707Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2025-12-31T17:03:36.718Z [DEBUG] Applying permission update: Adding 8 allow rule(s) to destination 'localSettings': ["Bash(npm install:*)","Bash(npm run dev:*)","Bash(dir:*)","Bash(findstr:*)","Bash(test:*)","Bash(npx supabase db reset)","Bash(git add:*)","Bash(git commit:*)"]
+2025-12-31T17:03:36.731Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2025-12-31T17:03:36.731Z [DEBUG] Total LSP servers loaded: 0
+2025-12-31T17:03:36.732Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2025-12-31T17:03:36.732Z [DEBUG] LSP manager initialized with 0 servers
+2025-12-31T17:03:36.732Z [DEBUG] LSP server manager initialized successfully
+2025-12-31T17:03:36.732Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2025-12-31T17:03:36.754Z [DEBUG] Loading skills from directories: managed=C:\ProgramData\ClaudeCode\.claude\skills, user=C:\Users\ben_f\.claude\skills, project=[]
+2025-12-31T17:03:36.755Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2025-12-31T17:03:37.887Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (1111.4ms): tasklist | findstr /I "Code.exe Cursor.exe Windsurf.exe idea64.exe pycharm64.exe webstorm64.exe phps
+2025-12-31T17:03:37.891Z [DEBUG] Loaded 0 installed plugins from C:\Users\ben_f\.claude\plugins\installed_plugins.json (schema version 1)
+2025-12-31T17:03:37.891Z [DEBUG] Official marketplace auto-install already attempted, skipping
+2025-12-31T17:03:37.964Z [DEBUG] Creating shell snapshot for bash (C:\Program Files\Git\bin\bash.exe)
+2025-12-31T17:03:37.964Z [DEBUG] Looking for shell config file: C:\Users\ben_f\.bashrc
+2025-12-31T17:03:37.964Z [DEBUG] Shell config file not found: C:\Users\ben_f\.bashrc, creating snapshot with Claude Code defaults only
+2025-12-31T17:03:37.964Z [DEBUG] Snapshots directory: C:\Users\ben_f\.claude\shell-snapshots
+2025-12-31T17:03:38.003Z [DEBUG] Creating snapshot at: C:\Users\ben_f\.claude\shell-snapshots\snapshot-bash-1767200617964-6avtwd.sh
+2025-12-31T17:03:38.003Z [DEBUG] Shell binary exists: true
+2025-12-31T17:03:38.003Z [DEBUG] Execution timeout: 10000ms
+2025-12-31T17:03:38.012Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude\todos\1e376b6c-c083-479e-8ede-73fc76337e0d-agent-1e376b6c-c083-479e-8ede-73fc76337e0d.json.tmp.25584.1767200618012
+2025-12-31T17:03:38.017Z [DEBUG] Temp file written successfully, size: 2 bytes
+2025-12-31T17:03:38.017Z [DEBUG] Renaming C:\Users\ben_f\.claude\todos\1e376b6c-c083-479e-8ede-73fc76337e0d-agent-1e376b6c-c083-479e-8ede-73fc76337e0d.json.tmp.25584.1767200618012 to C:\Users\ben_f\.claude\todos\1e376b6c-c083-479e-8ede-73fc76337e0d-agent-1e376b6c-c083-479e-8ede-73fc76337e0d.json
+2025-12-31T17:03:38.018Z [DEBUG] File C:\Users\ben_f\.claude\todos\1e376b6c-c083-479e-8ede-73fc76337e0d-agent-1e376b6c-c083-479e-8ede-73fc76337e0d.json written atomically
+2025-12-31T17:03:38.051Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2025-12-31T17:03:38.051Z [DEBUG] Total plugin skills loaded: 0
+2025-12-31T17:03:38.051Z [DEBUG] Total plugin commands loaded: 0
+2025-12-31T17:03:38.051Z [DEBUG] Registered 0 hooks from 0 plugins
+2025-12-31T17:03:38.073Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2025-12-31T17:03:38.089Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2025-12-31T17:03:38.095Z [DEBUG] Total plugin agents loaded: 0
+2025-12-31T17:03:38.248Z [DEBUG] Loaded 0 installed plugins from V2 file at C:\Users\ben_f\.claude\plugins\installed_plugins_v2.json
+2025-12-31T17:03:38.248Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2025-12-31T17:03:38.258Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2025-12-31T17:03:38.258Z [DEBUG] Found 0 hook matchers in settings
+2025-12-31T17:03:38.258Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2025-12-31T17:03:38.303Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude.json.tmp.25584.1767200618303
+2025-12-31T17:03:38.303Z [DEBUG] Preserving file permissions: 100666
+2025-12-31T17:03:38.306Z [DEBUG] Temp file written successfully, size: 14750 bytes
+2025-12-31T17:03:38.307Z [DEBUG] Applied original permissions to temp file
+2025-12-31T17:03:38.307Z [DEBUG] Renaming C:\Users\ben_f\.claude.json.tmp.25584.1767200618303 to C:\Users\ben_f\.claude.json
+2025-12-31T17:03:38.308Z [DEBUG] File C:\Users\ben_f\.claude.json written atomically
+2025-12-31T17:03:38.417Z [DEBUG] Total plugin output styles loaded: 0
+2025-12-31T17:03:38.423Z [DEBUG] Git remote URL: https://github.com/benfunke/brytlyst.git
+2025-12-31T17:03:38.424Z [DEBUG] Parsed repository: benfunke/brytlyst from https://github.com/benfunke/brytlyst.git
+2025-12-31T17:03:38.424Z [DEBUG] Parsed repository: benfunke/brytlyst from URL: https://github.com/benfunke/brytlyst.git
+2025-12-31T17:03:38.425Z [DEBUG] Path C:\Users\ben_f\OneDrive\Documents\Code\BrytLyst\brytlyst already tracked for repo benfunke/brytlyst
+2025-12-31T17:03:38.631Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2025-12-31T17:03:38.631Z [DEBUG] Found 0 hook matchers in settings
+2025-12-31T17:03:38.631Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)

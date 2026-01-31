@@ -1,0 +1,804 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { ArrowLeft, Loader2, CheckCircle, AlertCircle, Upload, Trash2, Lock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { supabase } from '@/lib/supabase';
+import { useAuth } from '@/lib/auth-context';
+import { UserMenu } from '@/components/user-menu';
+
+const extractVideoId = (input: string): string => {
+  const trimmed = input.trim();
+
+  // If it's already just an ID (11 characters, alphanumeric with - and _)
+  if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) {
+    return trimmed;
+  }
+
+  // Match various YouTube URL patterns
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+    /youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]{11})/
+  ];
+
+  for (const pattern of patterns) {
+    const match = trimmed.match(pattern);
+    if (match) return match[1];
+  }
+
+  return trimmed; // Return as-is if no pattern matches
+};
+
+interface VideoMetadata {
+  title: string;
+  channelName: string;
+  thumbnail: string;
+  duration: string;
+  views: string | null;
+  viewCount: number;
+  likes: number;
+  description: string;
+  tags: string[];
+  uploadedAt: string;
+  youtubeId: string;
+  category?: string;
+  error?: string;
+  fetchStatus?: 'pending' | 'loading' | 'success' | 'error';
+}
+
+export default function ImportVideoIdsPage() {
+  const router = useRouter();
+  const { user, loading: authLoading } = useAuth();
+  const [videoIdsInput, setVideoIdsInput] = useState('');
+  const [videos, setVideos] = useState<VideoMetadata[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [bulkCategory, setBulkCategory] = useState('');
+  const [customBulkCategory, setCustomBulkCategory] = useState('');
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [loading, setLoading] = useState(false);
+  const [importing, setImporting] = useState(false);
+  const [fetchProgress, setFetchProgress] = useState({ current: 0, total: 0 });
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+  useEffect(() => {
+    if (!authLoading && (!user || !user.isAdmin)) {
+      router.push('/');
+    }
+  }, [user, authLoading, router]);
+
+  useEffect(() => {
+    // Fetch existing categories from database
+    const fetchCategories = async () => {
+      const { data } = await supabase
+        .from('wlvideos')
+        .select('category')
+        .not('category', 'is', null);
+
+      if (data) {
+        const uniqueCategories = Array.from(new Set(data.map(v => v.category))).filter(Boolean) as string[];
+        setCategories(uniqueCategories.sort());
+      }
+    };
+
+    if (user?.isAdmin) {
+      fetchCategories();
+    }
+  }, [user]);
+
+  const parseVideoIds = async () => {
+    const lines = videoIdsInput.split('\n').map(line => line.trim()).filter(Boolean);
+
+    if (lines.length === 0) {
+      setMessage({ type: 'error', text: 'Please enter at least one video ID or URL' });
+      return;
+    }
+
+    const videoIds = lines.map(extractVideoId).filter(Boolean);
+    const uniqueIds = Array.from(new Set(videoIds));
+
+    if (uniqueIds.length === 0) {
+      setMessage({ type: 'error', text: 'No valid video IDs found' });
+      return;
+    }
+
+    setLoading(true);
+    setMessage(null);
+    setFetchProgress({ current: 0, total: uniqueIds.length });
+
+    try {
+      // Check which videos already exist in database
+      const { data: existingVideos } = await supabase
+        .from('wlvideos')
+        .select('youtube_id')
+        .in('youtube_id', uniqueIds);
+
+      const existingIds = new Set(existingVideos?.map(v => v.youtube_id) || []);
+      const newIds = uniqueIds.filter(id => !existingIds.has(id));
+
+      if (newIds.length === 0) {
+        setMessage({ type: 'error', text: 'All videos are already in the database' });
+        setLoading(false);
+        return;
+      }
+
+      if (existingIds.size > 0) {
+        setMessage({
+          type: 'success',
+          text: `${existingIds.size} video(s) already in database, fetching ${newIds.length} new video(s)`
+        });
+      }
+
+      // Initialize videos with pending status
+      const initialVideos: VideoMetadata[] = newIds.map(id => ({
+        youtubeId: id,
+        title: '',
+        channelName: '',
+        thumbnail: '',
+        duration: '',
+        views: null,
+        viewCount: 0,
+        likes: 0,
+        description: '',
+        tags: [],
+        uploadedAt: '',
+        fetchStatus: 'pending',
+      }));
+
+      setVideos(initialVideos);
+
+      // Fetch metadata in parallel batches
+      const batchSize = 5;
+      const results: VideoMetadata[] = [];
+
+      for (let i = 0; i < newIds.length; i += batchSize) {
+        const batch = newIds.slice(i, i + batchSize);
+        const batchPromises = batch.map(async (videoId, batchIndex) => {
+          const index = i + batchIndex;
+
+          // Update status to loading
+          setVideos(prev => prev.map((v, idx) =>
+            idx === index ? { ...v, fetchStatus: 'loading' } : v
+          ));
+
+          try {
+            const apiUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/fetch-youtube-metadata`;
+            const headers = {
+              'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json',
+            };
+
+            const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers,
+              body: JSON.stringify({ videoId }),
+            });
+
+            if (!response.ok) {
+              const error = await response.json();
+              throw new Error(error.error || 'Failed to fetch metadata');
+            }
+
+            const data = await response.json();
+
+            setFetchProgress(prev => ({ ...prev, current: prev.current + 1 }));
+
+            return {
+              ...data,
+              fetchStatus: 'success' as const,
+              category: '',
+            };
+          } catch (error) {
+            setFetchProgress(prev => ({ ...prev, current: prev.current + 1 }));
+
+            return {
+              youtubeId: videoId,
+              title: 'Failed to fetch',
+              channelName: '',
+              thumbnail: '',
+              duration: '',
+              views: null,
+              viewCount: 0,
+              likes: 0,
+              description: '',
+              tags: [],
+              uploadedAt: '',
+              category: '',
+              error: error instanceof Error ? error.message : 'Unknown error',
+              fetchStatus: 'error' as const,
+            };
+          }
+        });
+
+        const batchResults = await Promise.all(batchPromises);
+        results.push(...batchResults);
+
+        // Update videos state with batch results
+        setVideos(prev => {
+          const updated = [...prev];
+          batchResults.forEach((result, batchIndex) => {
+            updated[i + batchIndex] = result;
+          });
+          return updated;
+        });
+      }
+
+      // Auto-select successfully fetched videos
+      const successfulIds = new Set(
+        results.filter(v => v.fetchStatus === 'success').map(v => v.youtubeId)
+      );
+      setSelectedIds(successfulIds);
+
+      const successCount = results.filter(v => v.fetchStatus === 'success').length;
+      const errorCount = results.filter(v => v.fetchStatus === 'error').length;
+
+      setMessage({
+        type: successCount > 0 ? 'success' : 'error',
+        text: `Fetched ${successCount} video(s) successfully${errorCount > 0 ? `, ${errorCount} failed` : ''}`,
+      });
+    } catch (error) {
+      console.error('Error parsing video IDs:', error);
+      setMessage({
+        type: 'error',
+        text: error instanceof Error ? error.message : 'Failed to process video IDs',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const text = event.target?.result as string;
+      setVideoIdsInput(text);
+    };
+    reader.readAsText(file);
+  };
+
+  const updateVideoField = (youtubeId: string, field: keyof VideoMetadata, value: any) => {
+    setVideos(prev => prev.map(v =>
+      v.youtubeId === youtubeId ? { ...v, [field]: value } : v
+    ));
+  };
+
+  const deleteVideo = (youtubeId: string) => {
+    setVideos(prev => prev.filter(v => v.youtubeId !== youtubeId));
+    setSelectedIds(prev => {
+      const updated = new Set(prev);
+      updated.delete(youtubeId);
+      return updated;
+    });
+  };
+
+  const toggleVideo = (youtubeId: string) => {
+    const newSelected = new Set(selectedIds);
+    if (newSelected.has(youtubeId)) {
+      newSelected.delete(youtubeId);
+    } else {
+      newSelected.add(youtubeId);
+    }
+    setSelectedIds(newSelected);
+  };
+
+  const handleSelectAll = () => {
+    const allIds = videos.filter(v => v.fetchStatus === 'success').map(v => v.youtubeId);
+    setSelectedIds(new Set(allIds));
+  };
+
+  const handleDeselectAll = () => {
+    setSelectedIds(new Set());
+  };
+
+  const applyBulkCategory = () => {
+    const categoryToApply = bulkCategory === 'custom' ? customBulkCategory : bulkCategory;
+
+    if (!categoryToApply.trim()) {
+      setMessage({ type: 'error', text: 'Please select or enter a category' });
+      return;
+    }
+
+    setVideos(prev => prev.map(v => ({ ...v, category: categoryToApply.trim() })));
+    setMessage({ type: 'success', text: `Applied category "${categoryToApply}" to all videos` });
+  };
+
+  const handleImport = async () => {
+    if (selectedIds.size === 0) {
+      setMessage({ type: 'error', text: 'Please select at least one video to import' });
+      return;
+    }
+
+    const selectedVideos = videos.filter(v => selectedIds.has(v.youtubeId));
+    const missingCategories = selectedVideos.filter(v => !v.category?.trim());
+
+    if (missingCategories.length > 0) {
+      setMessage({
+        type: 'error',
+        text: `${missingCategories.length} selected video(s) are missing categories`
+      });
+      return;
+    }
+
+    setImporting(true);
+    setMessage(null);
+
+    try {
+      const videosToImport = selectedVideos.map(v => ({
+        youtube_id: v.youtubeId,
+        title: v.title,
+        channel_name: v.channelName,
+        thumbnail: v.thumbnail,
+        duration: v.duration,
+        category: v.category!.trim(),
+        views: v.views,
+        view_count: v.viewCount,
+        uploaded_at: v.uploadedAt,
+        description: v.description,
+        tags: v.tags,
+        likes: v.likes,
+        is_active: true,
+      }));
+
+      // Use upsert to handle duplicates gracefully
+      // This will skip videos that already exist (based on youtube_id unique constraint)
+      const { data, error } = await supabase
+        .from('wlvideos')
+        .upsert(videosToImport, {
+          onConflict: 'youtube_id',
+          ignoreDuplicates: true
+        })
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      const importedCount = data?.length || 0;
+      const skippedCount = videosToImport.length - importedCount;
+
+      setMessage({
+        type: 'success',
+        text: `Successfully imported ${importedCount} video(s)${skippedCount > 0 ? `, ${skippedCount} skipped (already exist)` : ''}`,
+      });
+
+      // Clear the form
+      setVideoIdsInput('');
+      setVideos([]);
+      setSelectedIds(new Set());
+      setBulkCategory('');
+      setCustomBulkCategory('');
+    } catch (error) {
+      console.error('Error importing videos:', error);
+      setMessage({
+        type: 'error',
+        text: error instanceof Error ? error.message : 'Failed to import videos',
+      });
+    } finally {
+      setImporting(false);
+    }
+  };
+
+  // Show loading state while checking auth
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-8 h-8 animate-spin text-blue-400 mx-auto mb-4" />
+          <p className="text-gray-400">Checking permissions...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show access denied if not admin
+  if (!user || !user.isAdmin) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
+        <Card className="bg-white/5 border-white/10 backdrop-blur-sm max-w-md">
+          <CardHeader>
+            <div className="flex items-center gap-3">
+              <Lock className="w-8 h-8 text-red-400" />
+              <CardTitle className="text-white">Access Denied</CardTitle>
+            </div>
+            <CardDescription className="text-gray-400">
+              You need administrator privileges to access this page.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Link href="/">
+              <Button variant="outline" className="w-full">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Go Back Home
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      <header className="bg-black/50 border-b border-white/10 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center gap-4">
+          <Link href="/admin/fetch-channel">
+            <Button variant="ghost" size="sm" className="text-white hover:text-blue-400 hover:bg-white/5">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back
+            </Button>
+          </Link>
+          <div className="flex-1">
+            <h1 className="text-xl font-bold text-white">Bulk Import Video IDs</h1>
+            <p className="text-sm text-gray-400">Paste or upload video IDs to fetch and import</p>
+          </div>
+          <Link href="/admin/import-playlist">
+            <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white hover:bg-white/5">
+              Import Playlist
+            </Button>
+          </Link>
+          <UserMenu />
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 py-8">
+        {message && (
+          <Alert
+            className={`mb-6 ${
+              message.type === 'success'
+                ? 'bg-green-500/10 border-green-500/30 text-green-400'
+                : 'bg-red-500/10 border-red-500/30 text-red-400'
+            }`}
+          >
+            {message.type === 'success' ? (
+              <CheckCircle className="h-4 w-4" />
+            ) : (
+              <AlertCircle className="h-4 w-4" />
+            )}
+            <AlertDescription>{message.text}</AlertDescription>
+          </Alert>
+        )}
+
+        <Card className="bg-white/5 border-white/10 backdrop-blur-sm mb-6">
+          <CardHeader>
+            <CardTitle className="text-white">Step 1: Enter Video IDs</CardTitle>
+            <CardDescription className="text-gray-400">
+              Paste YouTube video IDs or URLs (one per line), or upload a text file
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Label htmlFor="videoIds" className="text-gray-300">
+                Video IDs or URLs
+              </Label>
+              <Textarea
+                id="videoIds"
+                value={videoIdsInput}
+                onChange={(e) => setVideoIdsInput(e.target.value)}
+                placeholder="dQw4w9WgXcQ&#x0a;https://youtu.be/jNQXAC9IVRw&#x0a;https://www.youtube.com/watch?v=9bZkp7q19f0"
+                rows={8}
+                className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 mt-2 font-mono text-sm"
+                disabled={loading}
+              />
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="flex-1">
+                <Label htmlFor="fileUpload" className="text-gray-300">
+                  Or upload a file
+                </Label>
+                <Input
+                  id="fileUpload"
+                  type="file"
+                  accept=".txt,.csv"
+                  onChange={handleFileUpload}
+                  className="bg-white/5 border-white/10 text-white mt-2"
+                  disabled={loading}
+                />
+              </div>
+            </div>
+
+            <Button
+              onClick={parseVideoIds}
+              disabled={loading || !videoIdsInput.trim()}
+              className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold py-3"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  Fetching Metadata... {fetchProgress.current}/{fetchProgress.total}
+                </>
+              ) : (
+                <>
+                  <Upload className="w-4 h-4 mr-2" />
+                  Parse & Fetch Metadata
+                </>
+              )}
+            </Button>
+          </CardContent>
+        </Card>
+
+        {videos.length > 0 && (
+          <>
+            <Card className="bg-white/5 border-white/10 backdrop-blur-sm mb-6">
+              <CardHeader>
+                <CardTitle className="text-white">Step 2: Bulk Actions</CardTitle>
+                <CardDescription className="text-gray-400">
+                  Apply category to all videos or select videos to import
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="bulkCategory" className="text-gray-300">
+                      Bulk Category
+                    </Label>
+                    <Select value={bulkCategory} onValueChange={setBulkCategory}>
+                      <SelectTrigger className="bg-white/5 border-white/10 text-white mt-2">
+                        <SelectValue placeholder="Select category" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-gray-900 border-white/10">
+                        {categories.map(cat => (
+                          <SelectItem key={cat} value={cat} className="text-white hover:bg-white/10">
+                            {cat}
+                          </SelectItem>
+                        ))}
+                        <SelectItem value="custom" className="text-white hover:bg-white/10">
+                          Custom (enter below)
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {bulkCategory === 'custom' && (
+                    <div>
+                      <Label htmlFor="customCategory" className="text-gray-300">
+                        Custom Category
+                      </Label>
+                      <Input
+                        id="customCategory"
+                        value={customBulkCategory}
+                        onChange={(e) => setCustomBulkCategory(e.target.value)}
+                        placeholder="Enter custom category"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-gray-500 mt-2"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                <Button
+                  onClick={applyBulkCategory}
+                  variant="outline"
+                  className="w-full bg-white/5 border-white/10 text-white hover:bg-white/10"
+                  disabled={!bulkCategory || (bulkCategory === 'custom' && !customBulkCategory.trim())}
+                >
+                  Apply Category to All Videos
+                </Button>
+
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
+                  <Button
+                    onClick={handleSelectAll}
+                    variant="outline"
+                    size="sm"
+                    className="bg-white/5 border-white/10 text-white hover:bg-white/10"
+                  >
+                    Select All Successful
+                  </Button>
+                  <Button
+                    onClick={handleDeselectAll}
+                    variant="outline"
+                    size="sm"
+                    className="bg-white/5 border-white/10 text-white hover:bg-white/10"
+                  >
+                    Deselect All
+                  </Button>
+                  <div className="ml-auto flex items-center gap-3 text-sm">
+                    <span className="text-gray-400">
+                      Selected: <span className="text-white font-semibold">{selectedIds.size}</span>
+                    </span>
+                    <span className="text-gray-400">
+                      Total: <span className="text-white font-semibold">{videos.length}</span>
+                    </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-white/5 border-white/10 backdrop-blur-sm mb-6">
+              <CardHeader>
+                <CardTitle className="text-white">Step 3: Review & Edit Videos</CardTitle>
+                <CardDescription className="text-gray-400">
+                  Edit video details and set categories before importing
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <Button
+                  onClick={handleImport}
+                  disabled={importing || selectedIds.size === 0}
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 mb-4"
+                >
+                  {importing ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Importing {selectedIds.size} Videos...
+                    </>
+                  ) : (
+                    `Import ${selectedIds.size} Selected Video${selectedIds.size !== 1 ? 's' : ''}`
+                  )}
+                </Button>
+
+                {videos.map((video) => (
+                  <div
+                    key={video.youtubeId}
+                    className={`p-4 rounded-lg border transition-colors ${
+                      selectedIds.has(video.youtubeId)
+                        ? 'bg-blue-500/10 border-blue-500/30'
+                        : 'bg-white/5 border-white/10'
+                    } ${video.fetchStatus === 'error' ? 'opacity-60' : ''}`}
+                  >
+                    <div className="flex gap-4">
+                      <div className="flex items-start gap-3">
+                        <Checkbox
+                          checked={selectedIds.has(video.youtubeId)}
+                          onCheckedChange={() => toggleVideo(video.youtubeId)}
+                          disabled={video.fetchStatus === 'error'}
+                          className="mt-1 bg-white/90 border-white"
+                        />
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => deleteVideo(video.youtubeId)}
+                          className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+
+                      {video.fetchStatus === 'loading' && (
+                        <div className="flex-1 flex items-center justify-center py-8">
+                          <Loader2 className="w-6 h-6 animate-spin text-blue-400" />
+                          <span className="ml-3 text-gray-400">Fetching metadata...</span>
+                        </div>
+                      )}
+
+                      {video.fetchStatus === 'error' && (
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 text-red-400 mb-2">
+                            <AlertCircle className="w-4 h-4" />
+                            <span className="font-medium">Failed to fetch: {video.youtubeId}</span>
+                          </div>
+                          <p className="text-sm text-gray-400">{video.error}</p>
+                        </div>
+                      )}
+
+                      {video.fetchStatus === 'success' && video.thumbnail && (
+                        <>
+                          <div className="w-48 h-28 flex-shrink-0 relative rounded-lg overflow-hidden">
+                            <Image
+                              src={video.thumbnail}
+                              alt={video.title}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+
+                          <div className="flex-1 space-y-3">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                              <div>
+                                <Label className="text-gray-300 text-xs">Title</Label>
+                                <Input
+                                  value={video.title}
+                                  onChange={(e) => updateVideoField(video.youtubeId, 'title', e.target.value)}
+                                  className="bg-white/5 border-white/10 text-white text-sm mt-1"
+                                />
+                              </div>
+                              <div>
+                                <Label className="text-gray-300 text-xs">Channel Name</Label>
+                                <Input
+                                  value={video.channelName}
+                                  onChange={(e) => updateVideoField(video.youtubeId, 'channelName', e.target.value)}
+                                  className="bg-white/5 border-white/10 text-white text-sm mt-1"
+                                />
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                              <div>
+                                <Label className="text-gray-300 text-xs">Category *</Label>
+                                <Input
+                                  value={video.category || ''}
+                                  onChange={(e) => updateVideoField(video.youtubeId, 'category', e.target.value)}
+                                  placeholder="Required"
+                                  className="bg-white/5 border-white/10 text-white text-sm mt-1"
+                                />
+                              </div>
+                              <div>
+                                <Label className="text-gray-300 text-xs">Duration</Label>
+                                <Input
+                                  value={video.duration}
+                                  onChange={(e) => updateVideoField(video.youtubeId, 'duration', e.target.value)}
+                                  className="bg-white/5 border-white/10 text-white text-sm mt-1"
+                                />
+                              </div>
+                              <div>
+                                <Label className="text-gray-300 text-xs">Views</Label>
+                                <Input
+                                  value={video.views || ''}
+                                  onChange={(e) => updateVideoField(video.youtubeId, 'views', e.target.value || null)}
+                                  className="bg-white/5 border-white/10 text-white text-sm mt-1"
+                                />
+                              </div>
+                              <div>
+                                <Label className="text-gray-300 text-xs">Uploaded At</Label>
+                                <Input
+                                  value={video.uploadedAt}
+                                  onChange={(e) => updateVideoField(video.youtubeId, 'uploadedAt', e.target.value)}
+                                  className="bg-white/5 border-white/10 text-white text-sm mt-1"
+                                />
+                              </div>
+                            </div>
+
+                            <div>
+                              <Label className="text-gray-300 text-xs">Description</Label>
+                              <Textarea
+                                value={video.description}
+                                onChange={(e) => updateVideoField(video.youtubeId, 'description', e.target.value)}
+                                rows={3}
+                                className="bg-white/5 border-white/10 text-white text-sm mt-1 resize-none"
+                              />
+                            </div>
+
+                            <div>
+                              <Label className="text-gray-300 text-xs">Tags (comma-separated)</Label>
+                              <Input
+                                value={video.tags.join(', ')}
+                                onChange={(e) =>
+                                  updateVideoField(
+                                    video.youtubeId,
+                                    'tags',
+                                    e.target.value.split(',').map(tag => tag.trim()).filter(Boolean)
+                                  )
+                                }
+                                className="bg-white/5 border-white/10 text-white text-sm mt-1"
+                              />
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                ))}
+
+                <Button
+                  onClick={handleImport}
+                  disabled={importing || selectedIds.size === 0}
+                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 mt-6"
+                >
+                  {importing ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Importing {selectedIds.size} Videos...
+                    </>
+                  ) : (
+                    `Import ${selectedIds.size} Selected Video${selectedIds.size !== 1 ? 's' : ''}`
+                  )}
+                </Button>
+              </CardContent>
+            </Card>
+          </>
+        )}
+      </main>
+    </div>
+  );
+}

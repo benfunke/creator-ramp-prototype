@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "sessionId": "20746794-f5f4-4085-8d1c-b684bfd0491b",
+      "leafUuid": "6a046ce3-fbfe-4477-9c22-1d4a0ecc6d41",
+      "fullPath": "C:\\Users\\ben_f\\.claude\\projects\\C--Users-ben-f--claude-worktrees-brytlyst-amazing-heisenberg\\20746794-f5f4-4085-8d1c-b684bfd0491b.jsonl",
+      "fileMtime": 1769402997995,
+      "firstPrompt": "make sure to consider these potential issues and how to avoid them: server and browser clients need to match what already exists -- changing that might break the app. be explicit to check what will ac…",
+      "messageCount": 3,
+      "created": "2026-01-26T04:40:28.099Z",
+      "modified": "2026-01-26T04:49:57.813Z",
+      "gitBranch": "amazing-heisenberg",
+      "projectPath": "C:\\Users\\ben_f\\.claude-worktrees\\brytlyst\\amazing-heisenberg",
+      "isSidechain": false
+    }
+  ]
+}

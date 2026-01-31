@@ -1,0 +1,59 @@
+2026-01-01T16:52:42.432Z [DEBUG] Watching for changes in setting files C:\Users\ben_f\OneDrive\Documents\Code\BrytLyst\brytlyst\.claude\settings.local.json...
+2026-01-01T16:52:42.600Z [DEBUG] Using bash path: "C:\Program Files\Git\bin\bash.exe"
+2026-01-01T16:52:42.678Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-01-01T16:52:42.678Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-01-01T16:52:42.678Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-01-01T16:52:42.679Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2026-01-01T16:52:42.679Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2026-01-01T16:52:42.711Z [DEBUG] Applying permission update: Adding 8 allow rule(s) to destination 'localSettings': ["Bash(npm install:*)","Bash(npm run dev:*)","Bash(dir:*)","Bash(findstr:*)","Bash(test:*)","Bash(npx supabase db reset)","Bash(git add:*)","Bash(git commit:*)"]
+2026-01-01T16:52:42.775Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-01T16:52:42.775Z [DEBUG] Total LSP servers loaded: 0
+2026-01-01T16:52:42.775Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-01-01T16:52:42.775Z [DEBUG] LSP manager initialized with 0 servers
+2026-01-01T16:52:42.776Z [DEBUG] LSP server manager initialized successfully
+2026-01-01T16:52:42.776Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-01-01T16:52:42.847Z [DEBUG] Loading skills from directories: managed=C:\ProgramData\ClaudeCode\.claude\skills, user=C:\Users\ben_f\.claude\skills, project=[]
+2026-01-01T16:52:42.849Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2026-01-01T16:52:45.431Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (2500.9ms): tasklist | findstr /I "Code.exe Cursor.exe Windsurf.exe idea64.exe pycharm64.exe webstorm64.exe phps
+2026-01-01T16:52:45.443Z [DEBUG] Loaded 0 installed plugins from C:\Users\ben_f\.claude\plugins\installed_plugins.json (schema version 1)
+2026-01-01T16:52:45.445Z [DEBUG] Official marketplace auto-install already attempted, skipping
+2026-01-01T16:52:45.665Z [DEBUG] Creating shell snapshot for bash (C:\Program Files\Git\bin\bash.exe)
+2026-01-01T16:52:45.666Z [DEBUG] Looking for shell config file: C:\Users\ben_f\.bashrc
+2026-01-01T16:52:45.666Z [DEBUG] Shell config file not found: C:\Users\ben_f\.bashrc, creating snapshot with Claude Code defaults only
+2026-01-01T16:52:45.666Z [DEBUG] Snapshots directory: C:\Users\ben_f\.claude\shell-snapshots
+2026-01-01T16:52:45.708Z [DEBUG] Creating snapshot at: C:\Users\ben_f\.claude\shell-snapshots\snapshot-bash-1767286365666-nv08my.sh
+2026-01-01T16:52:45.708Z [DEBUG] Shell binary exists: true
+2026-01-01T16:52:45.708Z [DEBUG] Execution timeout: 10000ms
+2026-01-01T16:52:45.728Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude\todos\78356306-51a5-44b6-a6b0-1381aa4e3ad0-agent-78356306-51a5-44b6-a6b0-1381aa4e3ad0.json.tmp.111024.1767286365728
+2026-01-01T16:52:45.735Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (6.2ms)
+2026-01-01T16:52:45.735Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-01T16:52:45.735Z [DEBUG] Renaming C:\Users\ben_f\.claude\todos\78356306-51a5-44b6-a6b0-1381aa4e3ad0-agent-78356306-51a5-44b6-a6b0-1381aa4e3ad0.json.tmp.111024.1767286365728 to C:\Users\ben_f\.claude\todos\78356306-51a5-44b6-a6b0-1381aa4e3ad0-agent-78356306-51a5-44b6-a6b0-1381aa4e3ad0.json
+2026-01-01T16:52:45.737Z [DEBUG] File C:\Users\ben_f\.claude\todos\78356306-51a5-44b6-a6b0-1381aa4e3ad0-agent-78356306-51a5-44b6-a6b0-1381aa4e3ad0.json written atomically
+2026-01-01T16:52:45.810Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-01T16:52:45.810Z [DEBUG] Total plugin skills loaded: 0
+2026-01-01T16:52:45.810Z [DEBUG] Total plugin commands loaded: 0
+2026-01-01T16:52:45.811Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-01T16:52:45.888Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2026-01-01T16:52:45.941Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2026-01-01T16:52:45.959Z [DEBUG] Total plugin agents loaded: 0
+2026-01-01T16:52:46.284Z [DEBUG] Loaded 0 installed plugins from V2 file at C:\Users\ben_f\.claude\plugins\installed_plugins_v2.json
+2026-01-01T16:52:46.284Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-01-01T16:52:46.306Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-01-01T16:52:46.306Z [DEBUG] Found 0 hook matchers in settings
+2026-01-01T16:52:46.306Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-01-01T16:52:46.429Z [DEBUG] [SLOW OPERATION DETECTED] fs.copyFileSync (7.0ms)
+2026-01-01T16:52:46.431Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude.json.tmp.111024.1767286366431
+2026-01-01T16:52:46.432Z [DEBUG] Preserving file permissions: 100666
+2026-01-01T16:52:46.442Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (10.6ms)
+2026-01-01T16:52:46.442Z [DEBUG] Temp file written successfully, size: 15658 bytes
+2026-01-01T16:52:46.443Z [DEBUG] Applied original permissions to temp file
+2026-01-01T16:52:46.443Z [DEBUG] Renaming C:\Users\ben_f\.claude.json.tmp.111024.1767286366431 to C:\Users\ben_f\.claude.json
+2026-01-01T16:52:46.446Z [DEBUG] File C:\Users\ben_f\.claude.json written atomically
+2026-01-01T16:52:46.846Z [DEBUG] Total plugin output styles loaded: 0
+2026-01-01T16:52:46.874Z [DEBUG] Git remote URL: https://github.com/benfunke/brytlyst.git
+2026-01-01T16:52:46.875Z [DEBUG] Parsed repository: benfunke/brytlyst from https://github.com/benfunke/brytlyst.git
+2026-01-01T16:52:46.875Z [DEBUG] Parsed repository: benfunke/brytlyst from URL: https://github.com/benfunke/brytlyst.git
+2026-01-01T16:52:46.878Z [DEBUG] Path C:\Users\ben_f\OneDrive\Documents\Code\BrytLyst\brytlyst already tracked for repo benfunke/brytlyst
+2026-01-01T16:52:47.278Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-01-01T16:52:47.278Z [DEBUG] Found 0 hook matchers in settings
+2026-01-01T16:52:47.278Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)

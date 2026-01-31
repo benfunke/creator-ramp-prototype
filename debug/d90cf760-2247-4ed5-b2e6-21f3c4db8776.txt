@@ -1,0 +1,68 @@
+2026-01-01T16:52:35.435Z [DEBUG] Using bash path: "C:\Program Files\Git\bin\bash.exe"
+2026-01-01T16:52:35.514Z [DEBUG] [LSP MANAGER] initializeLspServerManager() called
+2026-01-01T16:52:35.514Z [DEBUG] [LSP MANAGER] Created manager instance, state=pending
+2026-01-01T16:52:35.514Z [DEBUG] [LSP MANAGER] Starting async initialization (generation 1)
+2026-01-01T16:52:35.514Z [DEBUG] [LSP SERVER MANAGER] initialize() called
+2026-01-01T16:52:35.514Z [DEBUG] [LSP SERVER MANAGER] Calling getAllLspServers()
+2026-01-01T16:52:35.544Z [DEBUG] Found 0 plugins (0 enabled, 0 disabled)
+2026-01-01T16:52:35.544Z [DEBUG] Total LSP servers loaded: 0
+2026-01-01T16:52:35.544Z [DEBUG] [LSP SERVER MANAGER] getAllLspServers returned 0 server(s)
+2026-01-01T16:52:35.544Z [DEBUG] LSP manager initialized with 0 servers
+2026-01-01T16:52:35.544Z [DEBUG] LSP server manager initialized successfully
+2026-01-01T16:52:35.544Z [DEBUG] LSP notification handlers registered successfully for all 0 server(s)
+2026-01-01T16:52:35.567Z [DEBUG] Loading skills from directories: managed=C:\ProgramData\ClaudeCode\.claude\skills, user=C:\Users\ben_f\.claude\skills, project=[]
+2026-01-01T16:52:35.568Z [DEBUG] >>>>> getPluginSkills CALLED <<<<<
+2026-01-01T16:52:36.688Z [DEBUG] [SLOW OPERATION DETECTED] execSyncWithDefaults (1096.8ms): tasklist | findstr /I "Code.exe Cursor.exe Windsurf.exe idea64.exe pycharm64.exe webstorm64.exe phps
+2026-01-01T16:52:36.696Z [DEBUG] Loaded 0 installed plugins from C:\Users\ben_f\.claude\plugins\installed_plugins.json (schema version 1)
+2026-01-01T16:52:36.697Z [DEBUG] Official marketplace auto-install already attempted, skipping
+2026-01-01T16:52:36.822Z [DEBUG] Creating shell snapshot for bash (C:\Program Files\Git\bin\bash.exe)
+2026-01-01T16:52:36.822Z [DEBUG] Looking for shell config file: C:\Users\ben_f\.bashrc
+2026-01-01T16:52:36.822Z [DEBUG] Shell config file not found: C:\Users\ben_f\.bashrc, creating snapshot with Claude Code defaults only
+2026-01-01T16:52:36.823Z [DEBUG] Snapshots directory: C:\Users\ben_f\.claude\shell-snapshots
+2026-01-01T16:52:36.841Z [DEBUG] Creating snapshot at: C:\Users\ben_f\.claude\shell-snapshots\snapshot-bash-1767286356822-v9d57x.sh
+2026-01-01T16:52:36.841Z [DEBUG] Shell binary exists: true
+2026-01-01T16:52:36.841Z [DEBUG] Execution timeout: 10000ms
+2026-01-01T16:52:36.871Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude\todos\d90cf760-2247-4ed5-b2e6-21f3c4db8776-agent-d90cf760-2247-4ed5-b2e6-21f3c4db8776.json.tmp.77316.1767286356871
+2026-01-01T16:52:36.876Z [DEBUG] [SLOW OPERATION DETECTED] fs.writeFileSync (5.1ms)
+2026-01-01T16:52:36.876Z [DEBUG] Temp file written successfully, size: 2 bytes
+2026-01-01T16:52:36.876Z [DEBUG] Renaming C:\Users\ben_f\.claude\todos\d90cf760-2247-4ed5-b2e6-21f3c4db8776-agent-d90cf760-2247-4ed5-b2e6-21f3c4db8776.json.tmp.77316.1767286356871 to C:\Users\ben_f\.claude\todos\d90cf760-2247-4ed5-b2e6-21f3c4db8776-agent-d90cf760-2247-4ed5-b2e6-21f3c4db8776.json
+2026-01-01T16:52:36.877Z [DEBUG] File C:\Users\ben_f\.claude\todos\d90cf760-2247-4ed5-b2e6-21f3c4db8776-agent-d90cf760-2247-4ed5-b2e6-21f3c4db8776.json written atomically
+2026-01-01T16:52:36.880Z [DEBUG] getPluginSkills: Processing 0 enabled plugins
+2026-01-01T16:52:36.880Z [DEBUG] Total plugin skills loaded: 0
+2026-01-01T16:52:36.880Z [DEBUG] Total plugin commands loaded: 0
+2026-01-01T16:52:36.880Z [DEBUG] Registered 0 hooks from 0 plugins
+2026-01-01T16:52:36.897Z [DEBUG] Loaded 0 unique skills (managed: 0, user: 0, project: 0, duplicates removed: 0)
+2026-01-01T16:52:36.911Z [DEBUG] getSkills returning: 0 skill dir commands, 0 plugin skills
+2026-01-01T16:52:36.916Z [DEBUG] Total plugin agents loaded: 0
+2026-01-01T16:52:37.047Z [DEBUG] Loaded 0 installed plugins from V2 file at C:\Users\ben_f\.claude\plugins\installed_plugins_v2.json
+2026-01-01T16:52:37.047Z [DEBUG] Initialized versioned plugins system with 0 plugins
+2026-01-01T16:52:37.054Z [DEBUG] Getting matching hook commands for SessionStart with query: startup
+2026-01-01T16:52:37.054Z [DEBUG] Found 0 hook matchers in settings
+2026-01-01T16:52:37.054Z [DEBUG] Matched 0 unique hooks for query "startup" (0 before deduplication)
+2026-01-01T16:52:37.089Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude.json.tmp.77316.1767286357089
+2026-01-01T16:52:37.089Z [DEBUG] Preserving file permissions: 100666
+2026-01-01T16:52:37.092Z [DEBUG] Temp file written successfully, size: 15658 bytes
+2026-01-01T16:52:37.092Z [DEBUG] Applied original permissions to temp file
+2026-01-01T16:52:37.092Z [DEBUG] Renaming C:\Users\ben_f\.claude.json.tmp.77316.1767286357089 to C:\Users\ben_f\.claude.json
+2026-01-01T16:52:37.093Z [DEBUG] File C:\Users\ben_f\.claude.json written atomically
+2026-01-01T16:52:37.127Z [DEBUG] Writing to temp file: C:\Users\ben_f\.claude.json.tmp.77316.1767286357127
+2026-01-01T16:52:37.127Z [DEBUG] Preserving file permissions: 100666
+2026-01-01T16:52:37.131Z [DEBUG] Temp file written successfully, size: 15658 bytes
+2026-01-01T16:52:37.131Z [DEBUG] Applied original permissions to temp file
+2026-01-01T16:52:37.131Z [DEBUG] Renaming C:\Users\ben_f\.claude.json.tmp.77316.1767286357127 to C:\Users\ben_f\.claude.json
+2026-01-01T16:52:37.133Z [DEBUG] File C:\Users\ben_f\.claude.json written atomically
+2026-01-01T16:52:37.267Z [DEBUG] Total plugin output styles loaded: 0
+2026-01-01T16:52:37.271Z [DEBUG] Git remote URL: null
+2026-01-01T16:52:37.271Z [DEBUG] No git remote URL found
+2026-01-01T16:52:37.271Z [DEBUG] Not in a GitHub repository, skipping path mapping update
+2026-01-01T16:52:37.291Z [DEBUG] Skills and commands included in Skill tool:
+2026-01-01T16:52:37.291Z [DEBUG] Slash commands included in SlashCommand tool:
+2026-01-01T16:52:37.298Z [DEBUG] Getting matching hook commands for SubagentStart with query: Explore
+2026-01-01T16:52:37.298Z [DEBUG] Found 0 hook matchers in settings
+2026-01-01T16:52:37.298Z [DEBUG] Matched 0 unique hooks for query "Explore" (0 before deduplication)
+2026-01-01T16:52:37.361Z [DEBUG] Getting matching hook commands for SubagentStart with query: Plan
+2026-01-01T16:52:37.361Z [DEBUG] Found 0 hook matchers in settings
+2026-01-01T16:52:37.361Z [DEBUG] Matched 0 unique hooks for query "Plan" (0 before deduplication)
+2026-01-01T16:52:37.398Z [DEBUG] Getting matching hook commands for SessionEnd with query: other
+2026-01-01T16:52:37.398Z [DEBUG] Found 0 hook matchers in settings
+2026-01-01T16:52:37.398Z [DEBUG] Matched 0 unique hooks for query "other" (0 before deduplication)
