@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import Auth from '@/components/Auth'
 import Home from '@/components/Home'
+import ChannelChecker from '@/components/ChannelChecker'
 
 export default function Page() {
   const [session, setSession] = useState(null)
@@ -34,7 +35,17 @@ export default function Page() {
 
   return (
     <div className="App">
-      {session ? <Home user={session.user} /> : <Auth />}
+      {session ? (
+        <Home user={session.user} />
+      ) : (
+        <div className="landing-page">
+          <ChannelChecker />
+          <div className="divider">
+            <span>or</span>
+          </div>
+          <Auth />
+        </div>
+      )}
     </div>
   )
 }
