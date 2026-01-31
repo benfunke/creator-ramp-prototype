@@ -1,4 +1,6 @@
-import { supabase } from '../supabaseClient'
+'use client'
+
+import { supabase } from '@/lib/supabase'
 
 export default function Home({ user }) {
   const handleLogout = async () => {
@@ -8,7 +10,7 @@ export default function Home({ user }) {
   return (
     <div className="home-container">
       <h1>Welcome!</h1>
-      <p>You're logged in as: {user.email}</p>
+      <p>You&apos;re logged in as: {user.email}</p>
       <button onClick={handleLogout}>Log Out</button>
     </div>
   )

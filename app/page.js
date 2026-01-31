@@ -1,21 +1,20 @@
-import { useState, useEffect } from 'react'
-import { supabase } from './supabaseClient'
-import Auth from './components/Auth'
-import Home from './components/Home'
-import './App.css'
+'use client'
 
-function App() {
+import { useState, useEffect } from 'react'
+import { supabase } from '@/lib/supabase'
+import Auth from '@/components/Auth'
+import Home from '@/components/Home'
+
+export default function Page() {
   const [session, setSession] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
       setLoading(false)
     })
 
-    // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (_event, session) => {
         setSession(session)
@@ -26,7 +25,11 @@ function App() {
   }, [])
 
   if (loading) {
-    return <div className="loading">Loading...</div>
+    return (
+      <div className="App">
+        <div className="loading">Loading...</div>
+      </div>
+    )
   }
 
   return (
@@ -35,5 +38,3 @@ function App() {
     </div>
   )
 }
-
-export default App
