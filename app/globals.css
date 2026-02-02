@@ -360,6 +360,123 @@ button[type="submit"]:disabled {
   gap: 1rem;
 }
 
+.channels-status-btn {
+  font-size: 0.875rem;
+  color: #4a90a4;
+  padding: 0.5rem 1rem;
+  background: rgba(74, 144, 164, 0.08);
+  border: 1px solid rgba(74, 144, 164, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.channels-status-btn:hover {
+  background: rgba(74, 144, 164, 0.15);
+  border-color: rgba(74, 144, 164, 0.3);
+}
+
+/* Connected Channels Modal */
+.channels-modal {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.channels-list {
+  padding: 1rem 1.5rem 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.no-channels {
+  color: #888;
+  text-align: center;
+  padding: 2rem;
+}
+
+.channel-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.channel-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.channel-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.channel-card-avatar.placeholder {
+  background: #e74c3c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.channel-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.channel-card-name {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.channel-card-platform {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.channel-card-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.channel-card-stats .stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.channel-card-stats .stat-value {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.channel-card-stats .stat-label {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: lowercase;
+}
+
+.channel-card-sync {
+  font-size: 0.75rem;
+  color: #888;
+}
+
 .user-email {
   color: #666;
   font-size: 0.9rem;

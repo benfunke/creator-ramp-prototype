@@ -3,7 +3,9 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../../lib/supabase';
+import { formatTimeAgo } from '../../lib/utils';
 import ConnectChannelModal from '../../components/ConnectChannelModal';
+import ConnectedChannelsModal, { ChannelDetail } from '../../components/ConnectedChannelsModal';
 
 // Hardcoded dashboard data
 const dashboardData = {
@@ -112,7 +114,10 @@ const dashboardData = {
 export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
+  const [isChannelsModalOpen, setIsChannelsModalOpen] = useState(false);
+  const [channels, setChannels] = useState<ChannelDetail[]>([]);
+  const [lastSyncAt, setLastSyncAt] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -123,6 +128,37 @@ export default function Dashboard() {
         return;
       }
       setUser(session.user);
+
+      // Fetch all channel connections with full details
+      const { data: connections } = await supabase
+        .from('youtube_connections')
+        .select(`
+          id,
+          channel_id,
+          last_sync_at,
+          youtube_channels (
+            title,
+            thumbnail_url,
+            subscriber_count,
+            view_count,
+            video_count
+          )
+        `)
+        .eq('user_id', session.user.id)
+        .eq('is_active', true);
+
+      if (connections && connections.length > 0) {
+        setChannels(connections as ChannelDetail[]);
+
+        // Find most recent sync time across all channels
+        const mostRecentSync = connections
+          .map(c => c.last_sync_at)
+          .filter(Boolean)
+          .sort((a, b) => new Date(b!).getTime() - new Date(a!).getTime())[0];
+
+        setLastSyncAt(mostRecentSync || null);
+      }
+
       setLoading(false);
     };
 
@@ -160,7 +196,16 @@ export default function Dashboard() {
         <div className="header-content">
           <h1>Creator Dashboard</h1>
           <div className="header-actions">
-            <button onClick={() => setIsModalOpen(true)} className="connect-channel-btn">
+            {channels.length > 0 && (
+              <button
+                className="channels-status-btn"
+                onClick={() => setIsChannelsModalOpen(true)}
+              >
+                {channels.length} channel{channels.length !== 1 ? 's' : ''} connected
+                {lastSyncAt && ` · Synced ${formatTimeAgo(lastSyncAt)}`}
+              </button>
+            )}
+            <button onClick={() => setIsConnectModalOpen(true)} className="connect-channel-btn">
               + Connect Channel
             </button>
             <span className="user-email">{user?.email}</span>
@@ -169,8 +214,13 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* Connect Channel Modal */}
-      <ConnectChannelModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      {/* Modals */}
+      <ConnectChannelModal isOpen={isConnectModalOpen} onClose={() => setIsConnectModalOpen(false)} />
+      <ConnectedChannelsModal
+        isOpen={isChannelsModalOpen}
+        onClose={() => setIsChannelsModalOpen(false)}
+        channels={channels}
+      />
 
       <main className="dashboard-main">
         {/* Section 1: Creator State Snapshot */}
