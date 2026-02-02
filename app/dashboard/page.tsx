@@ -148,7 +148,16 @@ export default function Dashboard() {
         .eq('is_active', true);
 
       if (connections && connections.length > 0) {
-        setChannels(connections as ChannelDetail[]);
+        // Transform Supabase array result to single object for youtube_channels
+        const transformedChannels: ChannelDetail[] = connections.map(conn => ({
+          id: conn.id,
+          channel_id: conn.channel_id,
+          last_sync_at: conn.last_sync_at,
+          youtube_channels: Array.isArray(conn.youtube_channels)
+            ? conn.youtube_channels[0] || null
+            : conn.youtube_channels
+        }));
+        setChannels(transformedChannels);
 
         // Find most recent sync time across all channels
         const mostRecentSync = connections
