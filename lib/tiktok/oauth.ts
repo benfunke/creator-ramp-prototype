@@ -1,3 +1,5 @@
+import crypto from 'crypto'
+
 const TIKTOK_AUTH_URL = 'https://www.tiktok.com/v2/auth/authorize/'
 const TIKTOK_TOKEN_URL = 'https://open.tiktokapis.com/v2/oauth/token/'
 
@@ -35,18 +37,36 @@ export interface TikTokUserInfo {
   is_verified?: boolean
 }
 
-export function generateAuthUrl(state: string): string {
+/**
+ * Generates a cryptographically random code verifier for PKCE.
+ * The verifier is a high-entropy string between 43-128 characters.
+ */
+export function generateCodeVerifier(): string {
+  return crypto.randomBytes(32).toString('base64url')
+}
+
+/**
+ * Generates a code challenge from the code verifier using SHA256.
+ * This is the Base64URL-encoded SHA256 hash of the verifier.
+ */
+export function generateCodeChallenge(verifier: string): string {
+  return crypto.createHash('sha256').update(verifier).digest('base64url')
+}
+
+export function generateAuthUrl(state: string, codeChallenge: string): string {
   const params = new URLSearchParams({
     client_key: process.env.TIKTOK_CLIENT_KEY!,
     redirect_uri: `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/tiktok/callback`,
     scope: SCOPES.join(','),
     response_type: 'code',
     state,
+    code_challenge: codeChallenge,
+    code_challenge_method: 'S256',
   })
   return `${TIKTOK_AUTH_URL}?${params.toString()}`
 }
 
-export async function exchangeCodeForTokens(code: string): Promise<TikTokTokens> {
+export async function exchangeCodeForTokens(code: string, codeVerifier: string): Promise<TikTokTokens> {
   const response = await fetch(TIKTOK_TOKEN_URL, {
     method: 'POST',
     headers: {
@@ -58,6 +78,7 @@ export async function exchangeCodeForTokens(code: string): Promise<TikTokTokens>
       code,
       grant_type: 'authorization_code',
       redirect_uri: `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/tiktok/callback`,
+      code_verifier: codeVerifier,
     }),
   })
 

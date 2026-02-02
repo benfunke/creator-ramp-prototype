@@ -41,8 +41,14 @@ export async function GET(request: NextRequest) {
       throw new Error('OAuth state expired')
     }
 
-    // Exchange authorization code for tokens
-    const tokens = await exchangeCodeForTokens(code)
+    // Get PKCE code verifier from cookie
+    const codeVerifier = request.cookies.get('tiktok_oauth_verifier')?.value
+    if (!codeVerifier) {
+      throw new Error('PKCE code verifier missing')
+    }
+
+    // Exchange authorization code for tokens with PKCE verifier
+    const tokens = await exchangeCodeForTokens(code, codeVerifier)
 
     // Get user info
     const userInfo = await getUserInfo(tokens.access_token)
@@ -106,11 +112,12 @@ export async function GET(request: NextRequest) {
       console.error('Initial TikTok sync failed:', err)
     })
 
-    // Clear CSRF cookie and redirect to dashboard with success
+    // Clear OAuth cookies and redirect to dashboard with success
     const response = NextResponse.redirect(
       `${appUrl}/dashboard?tiktok_connected=true`
     )
     response.cookies.delete('tiktok_oauth_csrf')
+    response.cookies.delete('tiktok_oauth_verifier')
 
     return response
 

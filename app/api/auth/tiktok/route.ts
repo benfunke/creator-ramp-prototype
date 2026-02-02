@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClientWithAuth } from '@/lib/supabase-server'
-import { generateAuthUrl } from '@/lib/tiktok/oauth'
+import { generateAuthUrl, generateCodeVerifier, generateCodeChallenge } from '@/lib/tiktok/oauth'
 import crypto from 'crypto'
 
 export async function GET(request: NextRequest) {
@@ -26,12 +26,22 @@ export async function GET(request: NextRequest) {
     timestamp: Date.now()
   })).toString('base64')
 
-  // Generate the TikTok OAuth URL
-  const authUrl = generateAuthUrl(state)
+  // Generate PKCE code verifier and challenge
+  const codeVerifier = generateCodeVerifier()
+  const codeChallenge = generateCodeChallenge(codeVerifier)
 
-  // Store CSRF token in httpOnly cookie
+  // Generate the TikTok OAuth URL with PKCE
+  const authUrl = generateAuthUrl(state, codeChallenge)
+
+  // Store CSRF token and code verifier in httpOnly cookies
   const response = NextResponse.json({ authUrl })
   response.cookies.set('tiktok_oauth_csrf', csrfToken, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 600 // 10 minutes
+  })
+  response.cookies.set('tiktok_oauth_verifier', codeVerifier, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
