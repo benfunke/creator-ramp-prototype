@@ -101,7 +101,7 @@ export class TikTokAPI {
 
     const data = await response.json()
 
-    if (data.error?.code) {
+    if (data.error?.code && data.error.code !== 'ok') {
       throw new Error(data.error.message || 'TikTok API error')
     }
 
@@ -171,7 +171,7 @@ export class TikTokAPI {
 
     const data = await response.json()
 
-    if (data.error?.code) {
+    if (data.error?.code && data.error.code !== 'ok') {
       throw new Error(data.error.message || 'Failed to fetch videos')
     }
 

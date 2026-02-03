@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '../../lib/supabase';
 import { formatTimeAgo } from '../../lib/utils';
 import ConnectChannelModal from '../../components/ConnectChannelModal';
-import ConnectedChannelsModal, { ChannelDetail } from '../../components/ConnectedChannelsModal';
+import ConnectedChannelsModal, { ChannelDetail, Platform } from '../../components/ConnectedChannelsModal';
 
 // Hardcoded dashboard data
 const dashboardData = {
@@ -130,7 +130,10 @@ export default function Dashboard() {
       setUser(session.user);
 
       // Fetch all channel connections with full details
-      const { data: connections } = await supabase
+      const allChannels: ChannelDetail[] = [];
+
+      // Fetch YouTube connections
+      const { data: youtubeConnections } = await supabase
         .from('youtube_connections')
         .select(`
           id,
@@ -147,20 +150,107 @@ export default function Dashboard() {
         .eq('user_id', session.user.id)
         .eq('is_active', true);
 
-      if (connections && connections.length > 0) {
-        // Transform Supabase array result to single object for youtube_channels
-        const transformedChannels: ChannelDetail[] = connections.map(conn => ({
-          id: conn.id,
-          channel_id: conn.channel_id,
-          last_sync_at: conn.last_sync_at,
-          youtube_channels: Array.isArray(conn.youtube_channels)
-            ? conn.youtube_channels[0] || null
-            : conn.youtube_channels
-        }));
-        setChannels(transformedChannels);
+      if (youtubeConnections) {
+        youtubeConnections.forEach(conn => {
+          const ytChannel = Array.isArray(conn.youtube_channels)
+            ? conn.youtube_channels[0]
+            : conn.youtube_channels;
+          if (ytChannel) {
+            allChannels.push({
+              id: conn.id,
+              platform: 'youtube' as Platform,
+              last_sync_at: conn.last_sync_at,
+              title: ytChannel.title,
+              thumbnail_url: ytChannel.thumbnail_url,
+              follower_count: ytChannel.subscriber_count,
+              view_count: ytChannel.view_count,
+              video_count: ytChannel.video_count,
+            });
+          }
+        });
+      }
+
+      // Fetch Instagram connections
+      const { data: instagramConnections } = await supabase
+        .from('instagram_connections')
+        .select(`
+          id,
+          last_sync_at,
+          instagram_accounts (
+            username,
+            name,
+            profile_picture_url,
+            followers_count,
+            media_count
+          )
+        `)
+        .eq('user_id', session.user.id)
+        .eq('is_active', true);
+
+      if (instagramConnections) {
+        instagramConnections.forEach(conn => {
+          const igAccount = Array.isArray(conn.instagram_accounts)
+            ? conn.instagram_accounts[0]
+            : conn.instagram_accounts;
+          if (igAccount) {
+            allChannels.push({
+              id: conn.id,
+              platform: 'instagram' as Platform,
+              last_sync_at: conn.last_sync_at,
+              title: igAccount.name || igAccount.username,
+              username: igAccount.username,
+              thumbnail_url: igAccount.profile_picture_url,
+              follower_count: igAccount.followers_count,
+              media_count: igAccount.media_count,
+            });
+          }
+        });
+      }
+
+      // Fetch TikTok connections
+      const { data: tiktokConnections } = await supabase
+        .from('tiktok_connections')
+        .select(`
+          id,
+          last_sync_at,
+          tiktok_accounts (
+            username,
+            display_name,
+            avatar_url,
+            follower_count,
+            likes_count,
+            video_count
+          )
+        `)
+        .eq('user_id', session.user.id)
+        .eq('is_active', true);
+
+      if (tiktokConnections) {
+        tiktokConnections.forEach(conn => {
+          const ttAccount = Array.isArray(conn.tiktok_accounts)
+            ? conn.tiktok_accounts[0]
+            : conn.tiktok_accounts;
+          if (ttAccount) {
+            allChannels.push({
+              id: conn.id,
+              platform: 'tiktok' as Platform,
+              last_sync_at: conn.last_sync_at,
+              title: ttAccount.display_name || ttAccount.username,
+              username: ttAccount.username,
+              thumbnail_url: ttAccount.avatar_url,
+              follower_count: ttAccount.follower_count,
+              likes_count: ttAccount.likes_count,
+              video_count: ttAccount.video_count,
+            });
+          }
+        });
+      }
+
+      if (allChannels.length > 0) {
+        setChannels(allChannels);
 
         // Find most recent sync time across all channels
-        const mostRecentSync = connections
+        const mostRecentSync = allChannels
           .map(c => c.last_sync_at)
           .filter(Boolean)
           .sort((a, b) => new Date(b!).getTime() - new Date(a!).getTime())[0];

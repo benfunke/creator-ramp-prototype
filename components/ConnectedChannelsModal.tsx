@@ -2,23 +2,33 @@
 
 import { formatTimeAgo, formatNumber } from '../lib/utils'
 
+export type Platform = 'youtube' | 'instagram' | 'tiktok'
+
 export interface ChannelDetail {
   id: string
-  channel_id: string
+  platform: Platform
   last_sync_at: string | null
-  youtube_channels: {
-    title: string
-    thumbnail_url: string | null
-    subscriber_count: number
-    view_count: number
-    video_count: number
-  } | null
+  // Platform-specific data
+  title: string
+  username?: string
+  thumbnail_url: string | null
+  follower_count: number
+  view_count?: number
+  video_count?: number
+  media_count?: number
+  likes_count?: number
 }
 
 interface Props {
   isOpen: boolean
   onClose: () => void
   channels: ChannelDetail[]
+}
+
+const platformConfig: Record<Platform, { label: string; color: string; icon: string }> = {
+  youtube: { label: 'YouTube', color: '#FF0000', icon: 'YT' },
+  instagram: { label: 'Instagram', color: '#E4405F', icon: 'IG' },
+  tiktok: { label: 'TikTok', color: '#000000', icon: 'TT' },
 }
 
 export default function ConnectedChannelsModal({ isOpen, onClose, channels }: Props) {
@@ -36,52 +46,79 @@ export default function ConnectedChannelsModal({ isOpen, onClose, channels }: Pr
           {channels.length === 0 ? (
             <p className="no-channels">No channels connected yet.</p>
           ) : (
-            channels.map((channel) => (
-              <div key={channel.id} className="channel-card">
-                <div className="channel-card-header">
-                  {channel.youtube_channels?.thumbnail_url ? (
-                    <img
-                      src={channel.youtube_channels.thumbnail_url}
-                      alt=""
-                      className="channel-card-avatar"
-                    />
-                  ) : (
-                    <div className="channel-card-avatar placeholder">YT</div>
+            channels.map((channel) => {
+              const config = platformConfig[channel.platform]
+              return (
+                <div key={`${channel.platform}-${channel.id}`} className="channel-card">
+                  <div className="channel-card-header">
+                    {channel.thumbnail_url ? (
+                      <img
+                        src={channel.thumbnail_url}
+                        alt=""
+                        className="channel-card-avatar"
+                      />
+                    ) : (
+                      <div
+                        className="channel-card-avatar placeholder"
+                        style={{ backgroundColor: config.color, color: '#fff' }}
+                      >
+                        {config.icon}
+                      </div>
+                    )}
+                    <div className="channel-card-info">
+                      <span className="channel-card-name">
+                        {channel.title || channel.username || 'Unknown'}
+                      </span>
+                      <span
+                        className="channel-card-platform"
+                        style={{ color: config.color }}
+                      >
+                        {config.label}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="channel-card-stats">
+                    <div className="stat">
+                      <span className="stat-value">
+                        {formatNumber(channel.follower_count || 0)}
+                      </span>
+                      <span className="stat-label">
+                        {channel.platform === 'youtube' ? 'subscribers' : 'followers'}
+                      </span>
+                    </div>
+                    {channel.view_count !== undefined && (
+                      <div className="stat">
+                        <span className="stat-value">
+                          {formatNumber(channel.view_count)}
+                        </span>
+                        <span className="stat-label">views</span>
+                      </div>
+                    )}
+                    {channel.likes_count !== undefined && (
+                      <div className="stat">
+                        <span className="stat-value">
+                          {formatNumber(channel.likes_count)}
+                        </span>
+                        <span className="stat-label">likes</span>
+                      </div>
+                    )}
+                    <div className="stat">
+                      <span className="stat-value">
+                        {channel.video_count ?? channel.media_count ?? 0}
+                      </span>
+                      <span className="stat-label">
+                        {channel.platform === 'instagram' ? 'posts' : 'videos'}
+                      </span>
+                    </div>
+                  </div>
+                  {channel.last_sync_at && (
+                    <span className="channel-card-sync">
+                      Synced {formatTimeAgo(channel.last_sync_at)}
+                    </span>
                   )}
-                  <div className="channel-card-info">
-                    <span className="channel-card-name">
-                      {channel.youtube_channels?.title || 'YouTube Channel'}
-                    </span>
-                    <span className="channel-card-platform">YouTube</span>
-                  </div>
                 </div>
-                <div className="channel-card-stats">
-                  <div className="stat">
-                    <span className="stat-value">
-                      {formatNumber(channel.youtube_channels?.subscriber_count || 0)}
-                    </span>
-                    <span className="stat-label">subscribers</span>
-                  </div>
-                  <div className="stat">
-                    <span className="stat-value">
-                      {formatNumber(channel.youtube_channels?.view_count || 0)}
-                    </span>
-                    <span className="stat-label">views</span>
-                  </div>
-                  <div className="stat">
-                    <span className="stat-value">
-                      {channel.youtube_channels?.video_count || 0}
-                    </span>
-                    <span className="stat-label">videos</span>
-                  </div>
-                </div>
-                {channel.last_sync_at && (
-                  <span className="channel-card-sync">
-                    Synced {formatTimeAgo(channel.last_sync_at)}
-                  </span>
-                )}
-              </div>
-            ))
+              )
+            })
           )}
         </div>
       </div>
